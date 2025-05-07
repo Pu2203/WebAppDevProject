@@ -9,7 +9,7 @@ package model;
  * @author ductrungnguyen
  */
 public class AccountBean {
-    private int id = -1;
+    private int id;
     private String username;
     private String password;
     private int balance;
@@ -19,7 +19,8 @@ public class AccountBean {
     private int paymentId;
 
     public AccountBean() {}
-    public AccountBean(String username, String password, int balance, String role, int userId) {
+    public AccountBean(int id, String password, String username, int balance, String role, int userId) {
+        this.id = id;
         this.username = username;
         this.password = password;
         this.balance = 0;

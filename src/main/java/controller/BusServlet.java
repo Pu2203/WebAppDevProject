@@ -1,5 +1,6 @@
 package controller;
 
+import DAO.UserDB;
 import java.util.HashMap;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -8,7 +9,6 @@ import java.io.IOException;
 import java.util.*;
 import model.AccountBean;
 import model.UserBean;
-
 
 @WebServlet("/BusServlet")
 public class BusServlet extends HttpServlet {
@@ -24,19 +24,6 @@ public class BusServlet extends HttpServlet {
         String action = request.getParameter("action");
         HttpSession session = request.getSession();
         switch (action) {
-            case "REGISTER":
-                // Save account info to session
-                String fname = request.getParameter("Fullname");
-                String gender = request.getParameter("Gender");
-                int age = Integer.parseInt(request.getParameter("Age"));
-                String role = request.getParameter("Role");
-                UserBean user= new UserBean(fname, gender, age);
-                session.setAttribute("user", user);
-        
-                
-                request.getRequestDispatcher("/index.jsp").forward(request, response);
-                break;
-
             case "ADD":
                 // Get product index and quantity
                 int productId = Integer.parseInt(request.getParameter("productId"));
@@ -75,8 +62,7 @@ public class BusServlet extends HttpServlet {
                 // Forward back to products.jsp
                 request.getRequestDispatcher("/products.jsp").forward(request, response);
                 break;
-                
-            
+
             case "RETURN":
                 session.setAttribute("cart", null);
                 response.sendRedirect("products.jsp");

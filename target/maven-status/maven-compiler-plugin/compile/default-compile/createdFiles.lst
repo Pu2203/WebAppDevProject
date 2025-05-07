@@ -1,6 +1,4 @@
-com\mycompany\buspass\JakartaRestConfiguration.class
-com\mycompany\buspass\resources\JakartaEE10Resource.class
-controller\BusServlet.class
-model\UserBean.class
-data\DBConnection.class
-model\AccountBean.class
+controller/LoginServlet.class
+controller/RegisterServlet.class
+DAO/AccountDB.class
+DAO/UserDB.class

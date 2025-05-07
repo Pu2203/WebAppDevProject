@@ -1,4 +1,4 @@
-package data;
+package DAO;
 
 import java.sql.*;
 
@@ -18,5 +18,7 @@ public class DBConnection {
 
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASSWORD);
+        
     }
+    
 }

@@ -6,7 +6,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page language="java" %>
 <html>
-    <head><title>Account Information</title></head>
+    <head><title>Login Page</title></head>
     <body>
         <h2>Please provide your account information</h2>
         <form action="BusServlet" method="post">

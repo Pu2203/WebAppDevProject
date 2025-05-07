@@ -9,7 +9,9 @@ package model;
  * @author ductrungnguyen
  */
 public class UserBean {
-    private int id = -1;
+    private int id;
+    private String phone;
+    private String email;
     private String fname;
     private String gender;
     private int age;
@@ -20,14 +22,24 @@ public class UserBean {
         age = 0;
     }
     
-    public UserBean(String fname, String gender, int age){
+    public UserBean(int id, String phone, String email, String fname, String gender, int age){
+        this.id = id;
+        this.phone = phone;
+        this.email = email;
         this.fname = fname;
         this.gender = gender;
         this.age = age;
     }
 
+    
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
+    
+    public String getPhone() { return phone; }
+    public void setPhone(String phone) { this.phone = phone; }
+    
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
     
     public String getFname() { return fname; }
     public void setFname(String fname) { this.fname = fname; }

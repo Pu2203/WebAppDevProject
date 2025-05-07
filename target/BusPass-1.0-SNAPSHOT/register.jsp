@@ -6,10 +6,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page language="java" %>
 <html>
-    <head><title>Account Information</title></head>
+    <head><title>Register Page</title></head>
     <body>
         <h2>Please provide your account information</h2>
-        <form action="BusServlet" method="post">
+        <form action="RegisterServlet" method="post">
             <input type="hidden" name="action" value="REGISTER">
             <table border="1" cellpadding="10" cellspacing="0">
                 <tr>
@@ -40,11 +40,29 @@
                     <td><input type="text" name="PhoneNum" required></td>
                 </tr>
                 <tr>
+                    <td>Username:</td>
+                    <td><input type="text" name="Username" required></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="Password" required></td>
+                </tr>
+                <tr>
+                    <td>Confirm Password: </td>
+                    <td><input type="password" name="ConfirmPassword" required></td>
+                </tr>
+                <tr>
                     <td colspan="2" align="center">
                         <input type="submit" value="REGISTER">
                     </td>
                 </tr>
             </table>
         </form>
+        <%
+        String error = (String) request.getAttribute("error");
+        if (error != null) {
+        %>
+        <div style='color:red;' class="error"><%= error %></div>
+        <% } %>
     </body>
 </html>

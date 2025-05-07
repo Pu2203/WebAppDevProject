@@ -1,3 +1,10 @@
-C:\Users\ductr\OneDrive\Documents\University\Documents\Web Application\Laboratory\BusPass\src\main\java\com\mycompany\buspass\JakartaRestConfiguration.java
-C:\Users\ductr\OneDrive\Documents\University\Documents\Web Application\Laboratory\BusPass\src\main\java\DAO\DBConnection.java
-C:\Users\ductr\OneDrive\Documents\University\Documents\Web Application\Laboratory\BusPass\src\main\java\com\mycompany\buspass\resources\JakartaEE10Resource.java
+/Users/ductrungnguyen/Documents/GitHub/WebAppDevProject/src/main/java/DAO/AccountDB.java
+/Users/ductrungnguyen/Documents/GitHub/WebAppDevProject/src/main/java/DAO/DBConnection.java
+/Users/ductrungnguyen/Documents/GitHub/WebAppDevProject/src/main/java/controller/RegisterServlet.java
+/Users/ductrungnguyen/Documents/GitHub/WebAppDevProject/src/main/java/com/mycompany/buspass/JakartaRestConfiguration.java
+/Users/ductrungnguyen/Documents/GitHub/WebAppDevProject/src/main/java/model/UserBean.java
+/Users/ductrungnguyen/Documents/GitHub/WebAppDevProject/src/main/java/model/AccountBean.java
+/Users/ductrungnguyen/Documents/GitHub/WebAppDevProject/src/main/java/com/mycompany/buspass/resources/JakartaEE10Resource.java
+/Users/ductrungnguyen/Documents/GitHub/WebAppDevProject/src/main/java/controller/BusServlet.java
+/Users/ductrungnguyen/Documents/GitHub/WebAppDevProject/src/main/java/DAO/UserDB.java
+/Users/ductrungnguyen/Documents/GitHub/WebAppDevProject/src/main/java/controller/LoginServlet.java
