@@ -32,24 +32,25 @@ public class RegisterServlet extends HttpServlet {
         
         String fname = request.getParameter("Fullname");
                 String gender = request.getParameter("Gender");
-                int age = Integer.parseInt(request.getParameter("Age"));
+                String dobStr = request.getParameter("DoB");
                 String role = request.getParameter("Role");
                 String email = request.getParameter("Email");
                 String phone = request.getParameter("PhoneNum");
                 String username = request.getParameter("Username");
                 String password = request.getParameter("Password");
                 String confirmPassword = request.getParameter("ConfirmPassword");
-
+                
+                java.sql.Date dob = java.sql.Date.valueOf(dobStr);
                 if (password == null || confirmPassword == null || !password.equals(confirmPassword)) {
                     // Passwords don't match — set error message
                     request.setAttribute("error", "Passwords do not match. Please try again.");
                     request.getRequestDispatcher("/register.jsp").forward(request, response);
                     return;
                 } 
-                UserBean user = new UserBean(-1, phone, email, fname, gender, age);
+                UserBean user = new UserBean(-1, phone, email, fname, gender, dob);
                 int userId = UserDB.insert(user);
                 if (user.getId() == -1) user.setId(userId);
-                AccountBean account = new AccountBean(-1, password, username, 0, role, userId);
+                AccountBean account = new AccountBean(-1, username, password, 0, role, userId);
                 int accountId = AccountDB.insert(account);
                 if (account.getId() == -1) account.setId(accountId);
 

@@ -24,12 +24,20 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Age:</td>
-                    <td><input type="number" name="Age" required></td>
+                    <td>Date of Birth:</td>
+                    <td><input type="date" name="DoB" required></td>
                 </tr>
                 <tr>
                     <td>Role:</td>
-                    <td><input type="text" name="Role" required></td>
+                    <td>
+                        <select name="Role">
+                            <option value="Student" required> Student</option>
+                            <option value="Elder" required> Elder</option>                        
+                            <option value="Normal" required> Normal</option>
+                        </select>
+                       
+
+                    </td>
                 </tr>
                 <tr>
                     <td>Email:</td>

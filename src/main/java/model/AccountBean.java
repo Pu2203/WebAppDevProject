@@ -19,7 +19,7 @@ public class AccountBean {
     private int paymentId;
 
     public AccountBean() {}
-    public AccountBean(int id, String password, String username, int balance, String role, int userId) {
+    public AccountBean(int id,  String username, String password, int balance, String role, int userId) {
         this.id = id;
         this.username = username;
         this.password = password;

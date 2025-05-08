@@ -3,10 +3,10 @@ model/BusRoute.class
 controller/LoginServlet.class
 com/lab/digitalbuspassforlocalbuses/JakartaRestConfiguration.class
 controller/RegisterServlet.class
-model/Ticket.class
 DAO/AccountDB.class
+model/BusBean.class
+model/TicketBean.class
 com/lab/digitalbuspassforlocalbuses/resources/JakartaEE10Resource.class
-model/Bus.class
 model/Cart.class
 model/Payment.class
 model/BusPass.class

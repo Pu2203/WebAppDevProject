@@ -25,13 +25,13 @@ public class UserDB {
             // Use DBConnection utility to get connection
             conn = DBConnection.getConnection();
 
-            String sql = "INSERT INTO User (PhoneNum, Email, FullName, Gender, Age) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO User (fullname, DoB, gender, user_mail, user_phonenumber) VALUES (?, ?, ?, ?, ?)";
             pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            pstmt.setString(1, user.getPhone());
-            pstmt.setString(2, user.getEmail());
-            pstmt.setString(3, user.getFname());
-            pstmt.setString(4, user.getGender());
-            pstmt.setInt(5, user.getAge());
+            pstmt.setString(1, user.getFname());
+            pstmt.setDate(2, user.getDoB());
+            pstmt.setString(3, user.getGender());
+            pstmt.setString(4, user.getEmail());
+            pstmt.setString(5, user.getPhone());
 
 
             int affectedRows = pstmt.executeUpdate();

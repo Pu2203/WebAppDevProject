@@ -25,10 +25,11 @@ public class AccountDB {
             // Use DBConnection utility to get connection
             conn = DBConnection.getConnection();
 
-            String sql = "INSERT INTO Account (Password, Username, Balance, Role, UserID) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO Account (username, password, balance, account_type, User_id) VALUES (?, ?, ?, ?, ?)";
             pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            pstmt.setString(1, account.getPassword());
-            pstmt.setString(2, account.getUsername());
+            
+            pstmt.setString(1, account.getUsername());
+            pstmt.setString(2, account.getPassword());
             pstmt.setInt(3, account.getBalance());
             pstmt.setString(4, account.getRole());
             pstmt.setInt(5, account.getUserId());

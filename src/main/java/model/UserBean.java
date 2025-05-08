@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.sql.Date;
+
 /**
  *
  * @author ductrungnguyen
@@ -14,21 +16,21 @@ public class UserBean {
     private String email;
     private String fname;
     private String gender;
-    private int age;
+    private Date dob;
 
     public UserBean() {
         fname = "";
         gender = "";
-        age = 0;
+        dob = null;
     }
     
-    public UserBean(int id, String phone, String email, String fname, String gender, int age){
+    public UserBean(int id, String phone, String email, String fname, String gender, Date dob){
         this.id = id;
         this.phone = phone;
         this.email = email;
         this.fname = fname;
         this.gender = gender;
-        this.age = age;
+        this.dob = dob;
     }
 
     
@@ -47,6 +49,6 @@ public class UserBean {
     public String getGender() { return gender; }
     public void setGender(String gender) { this.gender = gender; }
 
-    public int getAge() { return age; }
-    public void setAge(int age) { this.age = age; }
+    public Date getDoB() { return dob; }
+    public void setDoB(Date dob) { this.dob = dob; }
 }
