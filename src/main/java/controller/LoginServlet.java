@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
         try {
             conn = DBConnection.getConnection();
 
-            String sql = "SELECT * FROM Account WHERE Username = ? AND Password = ?";
+            String sql = "SELECT * FROM Account WHERE username = ? AND password = ?";
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, username);
             stmt.setString(2, password);

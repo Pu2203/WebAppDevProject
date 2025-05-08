@@ -132,14 +132,16 @@
                         <button type="submit" class="btn-primary">Đăng ký</button>
                     </div>
                 </form>
-
+                
+                <c:if test="${not empty requestScope.error}">
+                    <div class="error-message">${requestScope.error}</div>
+                </c:if>
+                
                 <div class="login-link">
                     <p>Đã có tài khoản? <a href="login.jsp">Đăng nhập ngay</a></p>
                 </div>
 
-                <c:if test="${not empty requestScope.error}">
-                    <div class="error-message">${requestScope.error}</div>
-                </c:if>
+                
             </div>
         </main>
 
