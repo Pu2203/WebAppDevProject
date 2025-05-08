@@ -1,7 +1,6 @@
 <%@page import="DAO.DBConnection"%>
 <%@ page import="java.sql.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,14 +27,23 @@
             <h2>Đăng nhập</h2>
             <form action="LoginServlet" method="post" class="login-form">
                 <input type="hidden" name="action" value="LOGIN">
-                <div class="form-group">
-                    <label for="username">Tên đăng nhập:</label>
-                    <input type="text" id="username" name="username" required />
-                </div>
-                <div class="form-group">
-                    <label for="password">Mật khẩu:</label>
-                    <input type="password" id="password" name="password" required />
-                </div>
+                <table>
+                    <tr>
+                        <div class="form-group">
+                            <td><label for="username">Tên đăng nhập:</label></td>
+                            <td><input type="text" id="username" name="username" required /></td>
+                        </div>
+                    </tr>
+                    
+                    <tr>
+                        <div class="form-group">
+                            <td><label for="password">Mật khẩu:</label></td>
+                            <td><input type="password" id="password" name="password" required /></td>
+                        </div>
+                    </tr>
+                </table>
+                
+                
                 <div class="form-actions">
                     <button type="submit" class="btn-primary">Đăng nhập</button>
                 </div>
