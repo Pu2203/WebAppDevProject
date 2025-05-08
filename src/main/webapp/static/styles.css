@@ -1,5 +1,7 @@
 /* static/styles.css */
-
+label{
+    text-align: left;
+}
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #f4f7f6; /* Light gray background */
@@ -191,11 +193,13 @@ body {
 
 
 .container {
+    display: flex;
     margin: 20px auto;
     padding: 0px;
     max-width: 1300px;
     font-family: Arial, sans-serif;
     text-align: center;
+    justify-content: center;
 }
 
 h1 {

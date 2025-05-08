@@ -13,7 +13,7 @@
         <nav class="navbar">
             <div class="logo">Bus Ticket System</div>
             <ul class="nav-links">
-                <li><a href="${pageContext.request.contextPath}/home">Trang chủ</a></li>
+                <li><a href="${pageContext.request.contextPath}/home.jsp">Trang chủ</a></li>
                 <li><a href="${pageContext.request.contextPath}/views/view_buses.jsp">Xe bus</a></li>
                 <li><a href="${pageContext.request.contextPath}/views/buy_ticket.jsp">Mua vé</a></li>
                 <li><a href="${pageContext.request.contextPath}/login.jsp" class="active">Đăng nhập</a></li>
