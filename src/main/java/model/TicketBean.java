@@ -7,7 +7,7 @@ package model;
 import java.time.LocalDate;
 
 
-public class Ticket {
+public class TicketBean {
     private int ticketId;
     private int userId;
     private int cartId;
@@ -18,7 +18,7 @@ public class Ticket {
     private String ticketStatus;
     
     //Contructor
-    public Ticket(int ticketId, int userId, int cartId, String ticketType, float ticketPrice, 
+    public TicketBean(int ticketId, int userId, int cartId, String ticketType, float ticketPrice, 
            LocalDate ticketStatusDate, LocalDate ticketExpiredDate, String ticketStatus){
         
     }

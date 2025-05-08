@@ -57,6 +57,6 @@ public class RegisterServlet extends HttpServlet {
                 
                 session.setAttribute("account", account);
 
-                request.getRequestDispatcher("/index.jsp").forward(request, response);
+                request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 }

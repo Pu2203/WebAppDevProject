@@ -8,7 +8,7 @@
 <html>
     <head><title>Register Page</title></head>
     <body>
-        <h2>Please provide your account information</h2>
+        <h2>Sign Up</h2>
         <form action="RegisterServlet" method="post">
             <input type="hidden" name="action" value="REGISTER">
             <table border="1" cellpadding="10" cellspacing="0">

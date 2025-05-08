@@ -1,4 +1,13 @@
+model/Schedule.class
+model/BusRoute.class
 controller/LoginServlet.class
+com/lab/digitalbuspassforlocalbuses/JakartaRestConfiguration.class
 controller/RegisterServlet.class
+model/Ticket.class
 DAO/AccountDB.class
+com/lab/digitalbuspassforlocalbuses/resources/JakartaEE10Resource.class
+model/Bus.class
+model/Cart.class
+model/Payment.class
+model/BusPass.class
 DAO/UserDB.class

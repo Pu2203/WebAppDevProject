@@ -7,7 +7,7 @@
     <title>Login Page</title>
 </head>
 <body>
-    <h2>Login</h2>
+    <h2>Sign In</h2>
     <form action="LoginServlet" method="post">
         <input type="hidden" name="action" value="LOGIN">
         <table>
