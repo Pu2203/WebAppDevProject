@@ -53,7 +53,11 @@ public class UserDB {
         return userId;
     }
             
-    
+    public static UserBean getUser(int userId){
+        UserBean user = null;
+        
+        return user;
+    }
             
     
 }

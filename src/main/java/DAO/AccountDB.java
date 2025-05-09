@@ -53,4 +53,10 @@ public class AccountDB {
         }
         return accountId;
     }
+    
+    public static AccountBean getAccount(String username){
+        AccountBean account = null;
+        
+        return account;
+    }
 }
