@@ -54,10 +54,35 @@ public class UserDB {
     }
             
     public static UserBean getUser(int userId){
-        UserBean user = null;
         
-        return user;
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            // Use DBConnection utility to get connection
+            conn = DBConnection.getConnection();
+
+            String sql = "SELECT * FROM User WHERE user_id = ?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, userId);
+            rs = pstmt.executeQuery();
+            if (rs.next()){
+                UserBean user = new UserBean(rs.getInt("user_id"), rs.getString("user_phone_number"), rs.getString("user_mail"), rs.getString("full_name"), rs.getString("gender"), rs.getDate("DoB"));
+                return user;
+            }
+            else{
+                return null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try { if (rs != null) rs.close(); } catch (Exception e) {}
+            try { if (pstmt != null) pstmt.close(); } catch (Exception e) {}
+            try { if (conn != null) conn.close(); } catch (Exception e) {}
+        }
+        return null;
     }
-            
+       
     
 }

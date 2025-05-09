@@ -30,7 +30,7 @@
                             <a href="${pageContext.request.contextPath}/views/change-password" class="list-group-item list-group-item-action">
                                 <i class="bi bi-shield-lock me-2"></i> Change Password
                             </a>
-                            <a href="${pageContext.request.contextPath}/LoginServlet?action=LOGOUT" class="list-group-item list-group-item-action text-danger">
+                            <a href="${pageContext.request.contextPath}/LogoutServlet?action=LOGOUT" class="list-group-item list-group-item-action text-danger">
                                 <i class="bi bi-box-arrow-right me-2"></i> Logout
                             </a>
                         </div>
@@ -72,7 +72,7 @@
                                     <label for="phone_number" class="form-label">Phone Number</label>
                                     <div class="input-group">
                                         <span class="input-group-text"><i class="bi bi-telephone"></i></span>
-                                        <input type="text" class="form-control" id="phone_number" name="phone_number" value="${sessionScope.user.phoneNumber}">
+                                        <input type="text" class="form-control" id="phone_number" name="phone_number" value="${sessionScope.user.phone}">
                                     </div>
                                 </div>
                                 

@@ -5,6 +5,7 @@
 package controller;
 
 import DAO.DBConnection;
+import DAO.UserDB;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,6 +19,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import model.AccountBean;
+import model.UserBean;
 
 /**
  *
@@ -31,7 +34,6 @@ public class LoginServlet extends HttpServlet {
         HttpSession session = request.getSession();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -47,7 +49,11 @@ public class LoginServlet extends HttpServlet {
             rs = stmt.executeQuery();
 
             if (rs.next()) {
-                session.setAttribute("user", username);
+                AccountBean account = new AccountBean(rs.getInt("account_id"), rs.getString("username"), rs.getString("password"), rs.getInt("balance"), rs.getString("account_type"), rs.getInt("user_id"));
+                session.setAttribute("account", account);
+                UserBean user = UserDB.getUser(account.getUserId());
+                if (user != null)
+                    session.setAttribute("user", user);
                 url = "home.jsp";
                 request.setAttribute("message", "Login successful! Welcome, " + username + ".");
                 

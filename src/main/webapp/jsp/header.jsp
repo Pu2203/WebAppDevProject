@@ -41,7 +41,7 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav">
-                        <c:if test="${not empty sessionScope.user}">
+                        <c:if test="${not empty sessionScope.account.username}">
                             <li class="nav-item">
                                 <a class="nav-link ${param.page eq 'tickets' ? 'active' : ''}" href="${pageContext.request.contextPath}/views/my-tickets">
                                     <i class="bi bi-journal-check"></i> My Tickets
@@ -58,7 +58,7 @@
                                 </a>
                             </li>
                         </c:if>
-                        <c:if test="${empty sessionScope.user}">
+                        <c:if test="${empty sessionScope.account.username}">
                             <li class="nav-item">
                                 <a class="nav-link ${param.page eq 'login' ? 'active' : ''}" href="${pageContext.request.contextPath}/login">
                                     <i class="bi bi-box-arrow-in-right"></i> Login
