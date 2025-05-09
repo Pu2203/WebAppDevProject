@@ -60,12 +60,12 @@
                         </c:if>
                         <c:if test="${empty sessionScope.user}">
                             <li class="nav-item">
-                                <a class="nav-link ${param.page eq 'login' ? 'active' : ''}" href="${pageContext.request.contextPath}/login.jsp">
+                                <a class="nav-link ${param.page eq 'login' ? 'active' : ''}" href="${pageContext.request.contextPath}/login">
                                     <i class="bi bi-box-arrow-in-right"></i> Login
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link ${param.page eq 'register' ? 'active' : ''}" href="${pageContext.request.contextPath}/register.jsp">
+                                <a class="nav-link ${param.page eq 'register' ? 'active' : ''}" href="${pageContext.request.contextPath}/register">
                                     <i class="bi bi-person-plus"></i> Register
                                 </a>
                             </li>
