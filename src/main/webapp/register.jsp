@@ -1,8 +1,3 @@
-<%-- 
-    Document   : account
-    Created on : Apr 29, 2025, 9:00:06 AM
-    Author     : ductrungnguyen
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -11,7 +6,6 @@
     <jsp:param name="title" value="Register" />
     <jsp:param name="page" value="register" />
 </jsp:include>
-
 <section class="py-5">
     <div class="container">
         <div class="row justify-content-center">
