@@ -23,7 +23,7 @@ import java.sql.SQLException;
  *
  * @author ductrungnguyen
  */
-@WebServlet(name = "LoginServlet", urlPatterns = {"/login"})
+@WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
             rs = stmt.executeQuery();
 
             if (rs.next()) {
-                session.setAttribute("username", username);
+                session.setAttribute("user", username);
                 url = "home.jsp";
                 request.setAttribute("message", "Login successful! Welcome, " + username + ".");
                 

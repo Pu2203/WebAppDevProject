@@ -53,19 +53,19 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/LoginServlet?action=LOGOUT">
+                                <a class="nav-link" href="${pageContext.request.contextPath}/LogoutServlet?action=LOGOUT">
                                     <i class="bi bi-box-arrow-right"></i> Logout
                                 </a>
                             </li>
                         </c:if>
                         <c:if test="${empty sessionScope.user}">
                             <li class="nav-item">
-                                <a class="nav-link ${param.page eq 'login' ? 'active' : ''}" href="${pageContext.request.contextPath}/login">
+                                <a class="nav-link ${param.page eq 'login' ? 'active' : ''}" href="${pageContext.request.contextPath}/login.jsp">
                                     <i class="bi bi-box-arrow-in-right"></i> Login
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link ${param.page eq 'register' ? 'active' : ''}" href="${pageContext.request.contextPath}/register">
+                                <a class="nav-link ${param.page eq 'register' ? 'active' : ''}" href="${pageContext.request.contextPath}/register.jsp">
                                     <i class="bi bi-person-plus"></i> Register
                                 </a>
                             </li>
