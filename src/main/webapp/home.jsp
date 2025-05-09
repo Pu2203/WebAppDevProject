@@ -5,85 +5,151 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Bus Ticket System - Home</title>
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/static/styles.css">
-    </head>
-    <body>
-        <header>
-            <nav class="navbar">
-                <div class="logo">Bus Ticket System</div>
-                <ul class="nav-links">
-                    <li><a href="${pageContext.request.contextPath}/home" class="active">Trang chủ</a></li>
-                    <li><a href="${pageContext.request.contextPath}/views/view_buses.jsp">Xe bus</a></li>
-                    <li><a href="${pageContext.request.contextPath}/views/buy_ticket.jsp">Mua vé</a></li>
-                    <c:if test="${not empty sessionScope.user}">
-                        <li><a href="${pageContext.request.contextPath}/views/my_tickets.jsp">Vé của tôi</a></li>
-                        <li><a href="${pageContext.request.contextPath}/views/profile.jsp">Hồ sơ</a></li>
-                        <li><a href="${pageContext.request.contextPath}/LoginServlet?action=LOGOUT">Đăng xuất</a></li>
-                    </c:if>
-                    <c:if test="${empty sessionScope.user}">
-                        <li><a href="${pageContext.request.contextPath}/login.jsp">Đăng nhập</a></li>
-                        <li><a href="${pageContext.request.contextPath}/register.jsp">Đăng ký</a></li>
-                    </c:if>
-                </ul>
-            </nav>
-        </header>
-        
-        <main class="container">
-            <section class="hero">
-                <h1>Chào mừng đến với Hệ thống Đặt vé Xe Bus</h1>
-                <p>Đặt vé xe bus nhanh chóng, tiện lợi và an toàn</p>
-                <a href="${pageContext.request.contextPath}/views/buy_ticket.jsp" class="btn-primary">Đặt vé ngay</a>
-            </section>
-            
-            <section class="search-section">
-                <h2>Tìm kiếm tuyến xe</h2>
-                <form action="${pageContext.request.contextPath}/BusServlet" method="get" class="search-form">
-                    <input type="hidden" name="action" value="SEARCH">
-                    <div class="form-group">
-                        <label for="departure">Điểm khởi hành:</label>
-                        <input type="text" id="departure" name="departure" required>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<jsp:include page="/jsp/header.jsp">
+    <jsp:param name="title" value="Home" />
+    <jsp:param name="page" value="home" />
+</jsp:include>
+
+<!-- Hero Section -->
+<section class="py-5 bg-light text-center">
+    <div class="container px-5">
+        <h1 class="display-4 fw-bold">Welcome to Bus Ticket System</h1>
+        <p class="lead mb-4">Book bus tickets quickly, conveniently and safely</p>
+        <a href="${pageContext.request.contextPath}/views/buy-ticket" class="btn btn-primary btn-lg">
+            <i class="bi bi-ticket-perforated"></i> Book Now
+        </a>
+    </div>
+</section>
+
+<!-- Search Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0"><i class="bi bi-search"></i> Search Routes</h4>
                     </div>
-                    <div class="form-group">
-                        <label for="destination">Điểm đến:</label>
-                        <input type="text" id="destination" name="destination" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="date">Ngày đi:</label>
-                        <input type="date" id="date" name="date" required>
-                    </div>
-                    <button type="submit" class="btn-search">Tìm kiếm</button>
-                </form>
-            </section>
-            
-            <section class="popular-routes">
-                <h2>Tuyến phổ biến</h2>
-                <div class="route-cards">
-                    <div class="route-card">
-                        <h3>Hà Nội - Hồ Chí Minh</h3>
-                        <p>Từ 500.000 VND</p>
-                        <a href="${pageContext.request.contextPath}/views/buy_ticket.jsp?from=hanoi&to=hcm" class="btn-secondary">Đặt ngay</a>
-                    </div>
-                    <div class="route-card">
-                        <h3>Đà Nẵng - Huế</h3>
-                        <p>Từ 150.000 VND</p>
-                        <a href="${pageContext.request.contextPath}/views/buy_ticket.jsp?from=danang&to=hue" class="btn-secondary">Đặt ngay</a>
-                    </div>
-                    <div class="route-card">
-                        <h3>Nha Trang - Đà Lạt</h3>
-                        <p>Từ 200.000 VND</p>
-                        <a href="${pageContext.request.contextPath}/views/buy_ticket.jsp?from=nhatrang&to=dalat" class="btn-secondary">Đặt ngay</a>
+                    <div class="card-body">
+                        <form action="${pageContext.request.contextPath}/BusServlet" method="get">
+                            <input type="hidden" name="action" value="SEARCH">
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <label for="departure" class="form-label">Departure Point:</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-geo-alt"></i></span>
+                                        <input type="text" class="form-control" id="departure" name="departure" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="destination" class="form-label">Destination:</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-geo-alt-fill"></i></span>
+                                        <input type="text" class="form-control" id="destination" name="destination" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="date" class="form-label">Departure Date:</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-calendar3"></i></span>
+                                        <input type="date" class="form-control" id="date" name="date" required>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-center mt-4">
+                                    <button type="submit" class="btn btn-primary px-4">
+                                        <i class="bi bi-search"></i> Search
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-            </section>
-        </main>
-        
-        <footer>
-            <p>&copy; 2025 Bus Ticket System. All rights reserved.</p>
-        </footer>
-    </body>
-</html>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Popular Routes Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Popular Routes</h2>
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 shadow-sm hover-effect">
+                    <div class="card-body">
+                        <h5 class="card-title">Hanoi - Ho Chi Minh City</h5>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-currency-dollar text-success me-2"></i>
+                            <span>From 500,000 VND</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-clock me-2"></i>
+                            <span>Duration: 36-48 hours</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-calendar3 me-2"></i>
+                            <span>Daily</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 text-center">
+                        <a href="${pageContext.request.contextPath}/views/buy-ticket?from=hanoi&to=hcm" class="btn btn-outline-primary">
+                            <i class="bi bi-ticket-perforated"></i> Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 shadow-sm hover-effect">
+                    <div class="card-body">
+                        <h5 class="card-title">Da Nang - Hue</h5>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-currency-dollar text-success me-2"></i>
+                            <span>From 150,000 VND</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-clock me-2"></i>
+                            <span>Duration: 2-3 hours</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-calendar3 me-2"></i>
+                            <span>Daily</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 text-center">
+                        <a href="${pageContext.request.contextPath}/views/buy-ticket?from=danang&to=hue" class="btn btn-outline-primary">
+                            <i class="bi bi-ticket-perforated"></i> Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 shadow-sm hover-effect">
+                    <div class="card-body">
+                        <h5 class="card-title">Nha Trang - Da Lat</h5>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-currency-dollar text-success me-2"></i>
+                            <span>From 200,000 VND</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-clock me-2"></i>
+                            <span>Duration: 3-4 hours</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-calendar3 me-2"></i>
+                            <span>Daily</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 text-center">
+                        <a href="${pageContext.request.contextPath}/views/buy-ticket?from=nhatrang&to=dalat" class="btn btn-outline-primary">
+                            <i class="bi bi-ticket-perforated"></i> Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<jsp:include page="/jsp/footer.jsp" />

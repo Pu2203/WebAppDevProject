@@ -10,7 +10,116 @@
     </session-config>
     
     <welcome-file-list>
-        <welcome-file>login.jsp</welcome-file>
+        <welcome-file>home</welcome-file>
     </welcome-file-list>
     
+    <!-- URL Mappings for Servlet Pages -->
+    <servlet>
+        <servlet-name>HomeServlet</servlet-name>
+        <jsp-file>/home.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HomeServlet</servlet-name>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <jsp-file>/login.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <jsp-file>/register.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>AccountServlet</servlet-name>
+        <jsp-file>/account.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AccountServlet</servlet-name>
+        <url-pattern>/account</url-pattern>
+    </servlet-mapping>
+    
+    <!-- URL Mappings for Views Pages -->
+    <servlet>
+        <servlet-name>ViewBusesServlet</servlet-name>
+        <jsp-file>/views/view_buses.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewBusesServlet</servlet-name>
+        <url-pattern>/views/view-buses</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>AddBusServlet</servlet-name>
+        <jsp-file>/views/add_bus.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddBusServlet</servlet-name>
+        <url-pattern>/views/add-bus</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>EditBusServlet</servlet-name>
+        <jsp-file>/views/edit_bus.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditBusServlet</servlet-name>
+        <url-pattern>/views/edit-bus</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>BuyTicketServlet</servlet-name>
+        <jsp-file>/views/buy_ticket.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BuyTicketServlet</servlet-name>
+        <url-pattern>/views/buy-ticket</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>MyTicketsServlet</servlet-name>
+        <jsp-file>/views/my_tickets.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MyTicketsServlet</servlet-name>
+        <url-pattern>/views/my-tickets</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>TicketServlet</servlet-name>
+        <jsp-file>/views/ticket.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TicketServlet</servlet-name>
+        <url-pattern>/views/ticket</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ProfileServlet</servlet-name>
+        <jsp-file>/views/profile.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProfileServlet</servlet-name>
+        <url-pattern>/views/profile</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ManageAccountsServlet</servlet-name>
+        <jsp-file>/views/manage_accounts.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ManageAccountsServlet</servlet-name>
+        <url-pattern>/views/manage-accounts</url-pattern>
+    </servlet-mapping>
 </web-app>

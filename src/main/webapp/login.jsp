@@ -1,70 +1,74 @@
 <%@page import="DAO.DBConnection"%>
 <%@ page import="java.sql.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Đăng nhập - Bus Ticket System</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/styles.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/login.css">
-</head>
-<body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">Bus Ticket System</div>
-            <ul class="nav-links">
-                <li><a href="${pageContext.request.contextPath}/home.jsp">Trang chủ</a></li>
-                <li><a href="${pageContext.request.contextPath}/views/view_buses.jsp">Xe bus</a></li>
-                <li><a href="${pageContext.request.contextPath}/views/buy_ticket.jsp">Mua vé</a></li>
-                <li><a href="${pageContext.request.contextPath}/login.jsp" class="active">Đăng nhập</a></li>
-                <li><a href="${pageContext.request.contextPath}/register.jsp">Đăng ký</a></li>
-            </ul>
-        </nav>
-    </header>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-    <main class="container">
-        <div class="login-container">
-            <h2>Đăng nhập</h2>
-            <form action="LoginServlet" method="post" class="login-form">
-                <input type="hidden" name="action" value="LOGIN">
-                <table>
-                    <tr>
-                        <div class="form-group">
-                            <td><label for="username">Tên đăng nhập:</label></td>
-                            <td><input type="text" id="username" name="username" required /></td>
+<jsp:include page="/jsp/header.jsp">
+    <jsp:param name="title" value="Login" />
+    <jsp:param name="page" value="login" />
+</jsp:include>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white text-center py-3">
+                        <h4 class="mb-0"><i class="bi bi-person-circle"></i> Login</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <form action="LoginServlet" method="post">
+                            <input type="hidden" name="action" value="LOGIN">
+                            
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                    <input type="text" class="form-control" id="username" name="username" required placeholder="Enter your username">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                                    <input type="password" class="form-control" id="password" name="password" required placeholder="Enter your password">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                                <label class="form-check-label" for="remember">Remember me</label>
+                            </div>
+                            
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary py-2">
+                                    <i class="bi bi-box-arrow-in-right"></i> Login
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <div class="text-center mt-4">
+                            <p class="mb-0">Don't have an account? <a href="${pageContext.request.contextPath}/register" class="text-decoration-none">Register now</a></p>
+                            <p class="mt-2"><a href="#" class="text-decoration-none">Forgot password?</a></p>
                         </div>
-                    </tr>
-                    
-                    <tr>
-                        <div class="form-group">
-                            <td><label for="password">Mật khẩu:</label></td>
-                            <td><input type="password" id="password" name="password" required /></td>
-                        </div>
-                    </tr>
-                </table>
-                
-                
-                <div class="form-actions">
-                    <button type="submit" class="btn-primary">Đăng nhập</button>
+                        
+                        <c:if test="${not empty requestScope.message}">
+                            <div class="alert alert-success mt-3" role="alert">
+                                <i class="bi bi-check-circle-fill me-2"></i> ${requestScope.message}
+                            </div>
+                        </c:if>
+                        
+                        <c:if test="${not empty requestScope.error}">
+                            <div class="alert alert-danger mt-3" role="alert">
+                                <i class="bi bi-exclamation-triangle-fill me-2"></i> ${requestScope.error}
+                            </div>
+                        </c:if>
+                    </div>
                 </div>
-            </form>
-            
-            <div class="register-link">
-                <p>Chưa có tài khoản? <a href="register.jsp">Đăng ký ngay</a></p>
             </div>
-            
-            <c:if test="${not empty requestScope.message}">
-                <div class="success-message">${requestScope.message}</div>
-            </c:if>
-            
-            <c:if test="${not empty requestScope.error}">
-                <div class="error-message">${requestScope.error}</div>
-            </c:if>
         </div>
-    </main>
-    
-    <footer>
-        <p>&copy; 2025 Bus Ticket System. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+    </div>
+</section>
+
+<jsp:include page="/jsp/footer.jsp" />
