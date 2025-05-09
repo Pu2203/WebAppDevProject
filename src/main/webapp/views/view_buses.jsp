@@ -42,7 +42,7 @@
             </div>
             
             <div class="col-lg-4">
-                <c:if test="${sessionScope.user.username eq 'admin'}">
+                <c:if test="${sessionScope.username eq 'admin'}">
                     <div class="d-grid">
                         <a href="${pageContext.request.contextPath}/views/add-bus" class="btn btn-success btn-lg">
                             <i class="bi bi-plus-circle"></i> Add New Bus
@@ -83,7 +83,7 @@
                             <a href="${pageContext.request.contextPath}/views/buy-ticket?busId=${bus.id}" class="btn btn-primary">
                                 <i class="bi bi-ticket-perforated"></i> Buy Ticket
                             </a>
-                            <c:if test="${sessionScope.user.username eq 'admin'}">
+                            <c:if test="${sessionScope.username eq 'admin'}">
                                 <a href="${pageContext.request.contextPath}/views/edit-bus?busId=${bus.id}" class="btn btn-outline-secondary">
                                     <i class="bi bi-pencil"></i> Edit
                                 </a>
