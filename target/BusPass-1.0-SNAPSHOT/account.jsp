@@ -13,25 +13,8 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/static/styles.css">
     </head>
     <body>
-        <header>
-            <nav class="navbar">
-                <div class="logo">Bus Ticket System</div>
-                <ul class="nav-links">
-                    <li><a href="${pageContext.request.contextPath}/home">Trang chủ</a></li>
-                    <li><a href="${pageContext.request.contextPath}/views/view_buses.jsp">Xe bus</a></li>
-                    <li><a href="${pageContext.request.contextPath}/views/buy_ticket.jsp">Mua vé</a></li>
-                    <c:if test="${not empty sessionScope.user}">
-                        <li><a href="${pageContext.request.contextPath}/views/my_tickets.jsp">Vé của tôi</a></li>
-                        <li><a href="${pageContext.request.contextPath}/views/profile.jsp">Hồ sơ</a></li>
-                        <li><a href="${pageContext.request.contextPath}/LoginServlet?action=LOGOUT">Đăng xuất</a></li>
-                    </c:if>
-                    <c:if test="${empty sessionScope.user}">
-                        <li><a href="${pageContext.request.contextPath}/login.jsp">Đăng nhập</a></li>
-                        <li><a href="${pageContext.request.contextPath}/register.jsp">Đăng ký</a></li>
-                    </c:if>
-                </ul>
-            </nav>
-        </header>
+        <%@ include file="/includes/header.jsp" %>
+
         
         <main class="container">
             <div class="payment-container">
@@ -113,8 +96,5 @@
             </div>
         </main>
         
-        <footer>
-            <p>&copy; 2025 Bus Ticket System. All rights reserved.</p>
-        </footer>
-    </body>
+        <%@ include file="/includes/footer.jsp" %>    </body>
 </html>

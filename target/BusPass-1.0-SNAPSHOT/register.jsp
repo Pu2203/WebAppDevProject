@@ -3,8 +3,7 @@
     Created on : Apr 29, 2025, 9:00:06 AM
     Author     : ductrungnguyen
 --%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,18 +13,8 @@
 
     </head>
     <body>
-        <header>
-            <nav class="navbar">
-                <div class="logo">Bus Ticket System</div>
-                <ul class="nav-links">
-                    <li><a href="${pageContext.request.contextPath}/home">Trang chủ</a></li>
-                    <li><a href="${pageContext.request.contextPath}/views/view_buses.jsp">Xe bus</a></li>
-                    <li><a href="${pageContext.request.contextPath}/views/buy_ticket.jsp">Mua vé</a></li>
-                    <li><a href="${pageContext.request.contextPath}/login.jsp">Đăng nhập</a></li>
-                    <li><a href="${pageContext.request.contextPath}/register.jsp" class="active">Đăng ký</a></li>
-                </ul>
-            </nav>
-        </header>
+        <%@ include file="/includes/header.jsp" %>
+
 
         <main class="container">
             <div class="register-container">

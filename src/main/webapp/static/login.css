@@ -1,12 +1,15 @@
 /* static/login.css */
 
+
+
+
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f4f7f6; /* Light gray background */
+    /* Light gray background */
     color: #333; /* Dark gray text */
     margin: 0;
     padding: 20px;
-    background-image: url('/static/images/background.jpg'); /* Background image */
+    background-image: url(static/images/background.jpg); /* Background image */
     background-size: cover; /* Cover the entire background */
     background-position: center; /* Center the background image */
     display: flex;
@@ -14,8 +17,12 @@ body {
     align-items: center;
     height: 100vh; /* Full height */
 }
+table rd{
+    text-align: left;
+}
 
 .login-container {
+    
     background-color: rgba(255, 255, 255, 0.9); /* White background with some transparency */
     padding: 20px;
     border-radius: 8px; /* Rounded corners */
@@ -57,6 +64,7 @@ body {
 }
 
 .login-container button:hover {
+    
     background-color: #45a049; /* Darker green on hover */
     border-bottom: #ffffff;
 }

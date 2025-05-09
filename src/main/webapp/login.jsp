@@ -5,22 +5,11 @@
 <html>
 <head>
     <title>Đăng nhập - Bus Ticket System</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/styles.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/login.css">
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="static/login.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">Bus Ticket System</div>
-            <ul class="nav-links">
-                <li><a href="${pageContext.request.contextPath}/home.jsp">Trang chủ</a></li>
-                <li><a href="${pageContext.request.contextPath}/views/view_buses.jsp">Xe bus</a></li>
-                <li><a href="${pageContext.request.contextPath}/views/buy_ticket.jsp">Mua vé</a></li>
-                <li><a href="${pageContext.request.contextPath}/login.jsp" class="active">Đăng nhập</a></li>
-                <li><a href="${pageContext.request.contextPath}/register.jsp">Đăng ký</a></li>
-            </ul>
-        </nav>
-    </header>
+    <%@ include file="/includes/header.jsp" %>
 
     <main class="container">
         <div class="login-container">
@@ -63,8 +52,7 @@
         </div>
     </main>
     
-    <footer>
-        <p>&copy; 2025 Bus Ticket System. All rights reserved.</p>
-    </footer>
+    <%@ include file="/includes/footer.jsp" %>
+
 </body>
 </html>

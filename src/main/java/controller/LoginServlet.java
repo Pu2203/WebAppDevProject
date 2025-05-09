@@ -13,6 +13,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,7 +27,8 @@ import java.sql.SQLException;
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-
+        String url = "login.jsp";
+        HttpSession session = request.getSession();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
@@ -45,7 +47,10 @@ public class LoginServlet extends HttpServlet {
             rs = stmt.executeQuery();
 
             if (rs.next()) {
+                session.setAttribute("username", username);
+                url = "home.jsp";
                 request.setAttribute("message", "Login successful! Welcome, " + username + ".");
+                
             } else {
                 request.setAttribute("error", "Invalid username or password.");
             }
@@ -60,7 +65,7 @@ public class LoginServlet extends HttpServlet {
         }
 
         // Forward back to login.jsp with message or error
-        RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }
 }
