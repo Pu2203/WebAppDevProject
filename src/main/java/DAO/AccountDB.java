@@ -25,7 +25,7 @@ public class AccountDB {
             // Use DBConnection utility to get connection
             conn = DBConnection.getConnection();
 
-            String sql = "INSERT INTO Account (username, password, balance, account_type, User_id) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO Account (username, password, balance, account_type, User_id) VALUES (?, AES_ENCRYPT(?,'TRUNTRUN'), ?, ?, ?)";
             pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             
             pstmt.setString(1, account.getUsername());

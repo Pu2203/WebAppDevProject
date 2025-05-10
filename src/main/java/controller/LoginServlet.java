@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet {
         try {
             conn = DBConnection.getConnection();
 
-            String sql = "SELECT * FROM Account WHERE username = ? AND password = ?";
+            String sql = "SELECT *, AES_DECRYPT(password, 'TRUNTRUN') AS decryptedPassword FROM Account WHERE username = ? AND AES_DECRYPT(password, 'TRUNTRUN') = ?";
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, username);
             stmt.setString(2, password);
@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
             rs = stmt.executeQuery();
 
             if (rs.next()) {
-                AccountBean account = new AccountBean(rs.getInt("account_id"), rs.getString("username"), rs.getString("password"), rs.getInt("balance"), rs.getString("account_type"), rs.getInt("user_id"));
+                AccountBean account = new AccountBean(rs.getInt("account_id"), rs.getString("username"), rs.getString("decryptedPassword"), rs.getInt("balance"), rs.getString("account_type"), rs.getInt("user_id"));
                 session.setAttribute("account", account);
                 UserBean user = UserDB.getUser(account.getUserId());
                 if (user != null)
