@@ -17,13 +17,26 @@
                     </div>
                     <div class="card-body">
                         <p>Get unlimited access to rides on your chosen route. Ideal for regular travelers!</p>
-                        <ul>
-                            <li><strong>Monthly Pass:</strong> VND 150,000</li>
-                            <li><strong>Yearly Pass:</strong> VND 1,500,000</li>
-                        </ul>
-                        <a href="${pageContext.request.contextPath}/views/buy-ticket" class="btn btn-success mt-3">
-                            <i class="bi bi-card-checklist"></i> Purchase Bus Pass
-                        </a>
+                        <div class="row">
+                            <!-- One Month Pass -->
+                            <div class="col-md-6">
+                                <h6><strong>One Month Pass:</strong></h6>
+                                <p>Price: VND 150,000</p>
+                                <a href="${pageContext.request.contextPath}/views/payment.jsp?type=OneMonth&price=150000" 
+                                class="btn btn-success mt-3">
+                                    <i class="bi bi-card-checklist"></i> Purchase One Month Pass
+                                </a>
+                            </div>
+                            <!-- One Year Pass -->
+                            <div class="col-md-6">
+                                <h6><strong>One Year Pass:</strong></h6>
+                                <p>Price: VND 1,500,000</p>
+                                <a href="${pageContext.request.contextPath}/views/payment.jsp?type=OneYear&price=1500000" 
+                                class="btn btn-success mt-3">
+                                    <i class="bi bi-card-checklist"></i> Purchase One Year Pass
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

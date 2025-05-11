@@ -1,14 +1,9 @@
 package controller;
 
-import DAO.UserDB;
-import java.util.HashMap;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import java.io.IOException;
-import java.util.*;
-import model.AccountBean;
-import model.UserBean;
 
 @WebServlet(name = "BusServlet", urlPatterns = {"/BusServlet"})
 
