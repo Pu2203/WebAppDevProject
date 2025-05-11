@@ -58,15 +58,15 @@
                                 <div class="col-md-6">
                                     <div class="input-group">
                                         <span class="input-group-text"><i class="bi bi-search"></i></span>
-                                        <input type="text" id="search_query" name="search_query" placeholder="Search by route" class="form-control" onkeyup="autocomplete()">
+                                        <input type="text" id="search_query" name="search_query" placeholder="Search" class="form-control" onkeyup="autocomplete()">
                                     </div>
                                     <div id="suggestions" class="dropdown-menu"></div>
                                 </div>
                                 <div class="col-md-3">
-                                    <select id="sort_by" name="sort_by" class="form-select" onchange="this.form.submit()">
-                                        <option value="" disabled ${empty param.sort_by ? 'selected' : ''}>Route</option>
+                                    <select id="sort_by" name="sort_by" class="form-select" >
+                                        <option value="" disabled ${empty param.sort_by ? 'selected' : ''}>Search by</option>
                                         <option value="time" ${param.sort_by eq 'OnD' ? 'selected' : ''}>Origin - Destination</option>
-                                        <option value="bus_number" ${param.sort_by eq 'bus_number' ? 'selected' : ''}>Bus Number</option>
+                                        <option value="bus_number" ${param.sort_by eq 'Route' ? 'selected' : ''}>Route</option>
                                     </select>
                                 </div>
                                 <div class="col-md-3">

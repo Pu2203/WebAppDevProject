@@ -87,9 +87,9 @@ public class SearchServlet extends HttpServlet {
                 // Loại bỏ dấu trong origin và destination, và chuyển về lowercase
                 String origin = Utils.removeAccents(ticket.getOrigin().toLowerCase());
                 String destination = Utils.removeAccents(ticket.getDestination().toLowerCase());
-
+                String routeNumber = Utils.removeAccents(ticket.getRouteNumber().toLowerCase());
                 // So sánh không phân biệt dấu và chữ hoa chữ thường
-                if (origin.contains(searchQueryLower) || destination.contains(searchQueryLower)) {
+                if (origin.contains(searchQueryLower) || destination.contains(searchQueryLower) || routeNumber.contains(searchQueryLower)) {
                     filteredList.add(ticket);
                 }
             }
@@ -103,7 +103,7 @@ public class SearchServlet extends HttpServlet {
                 case "OnD":
                     ticketList.sort(Comparator.comparing(TicketInfo::getOrigin).thenComparing(TicketInfo::getDestination));
                     break;
-                case "bus_number":
+                case "Route":
                     ticketList.sort(Comparator.comparing(TicketInfo::getRouteNumber));
                     break;
                 default:
