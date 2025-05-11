@@ -18,7 +18,7 @@
 </section>
 
 <!-- Search Section -->
-<section class="py-5">
+<!--<section class="py-5">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
@@ -63,10 +63,10 @@
             </div>
         </div>
     </div>
-</section>
+</section><!--
 
 <!-- Popular Routes Section -->
-<section class="py-5 bg-light">
+<%--<section class="py-5 bg-light">
     <div class="container">
         <h2 class="text-center mb-5">Popular Routes</h2>
         <div class="row">
@@ -144,6 +144,6 @@
             </div>
         </div>
     </div>
-</section>
+</section>--%>
 
 <jsp:include page="/jsp/footer.jsp" />
