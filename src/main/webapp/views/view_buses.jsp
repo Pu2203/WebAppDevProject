@@ -8,6 +8,32 @@
 
 <section class="py-5">
     <div class="container">
+        <!-- Bus Pass Section -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-10">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-success text-white py-3">
+                        <h5 class="mb-0"><i class="bi bi-card-heading"></i> Bus Pass Options</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Get unlimited access to rides on your chosen route. Ideal for regular travelers!</p>
+                        <ul>
+                            <li><strong>Monthly Pass:</strong> VND 150,000</li>
+                            <li><strong>Yearly Pass:</strong> VND 1,500,000</li>
+                        </ul>
+                        <a href="${pageContext.request.contextPath}/views/buy-pass" class="btn btn-success mt-3">
+                            <i class="bi bi-card-checklist"></i> Purchase Bus Pass
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Separator -->
+        <hr class="my-4" />
+
+<section class="py-5">
+    <div class="container">
         <!-- Search and Sort Section -->
         <div class="row mb-4">
             <div class="col-lg-8">
@@ -41,54 +67,46 @@
                 </div>
             </div>
             
-            <div class="col-lg-4">
-                <c:if test="${sessionScope.account.username eq 'admin'}">
-                    <div class="d-grid">
-                        <a href="${pageContext.request.contextPath}/views/add-bus" class="btn btn-success btn-lg">
-                            <i class="bi bi-plus-circle"></i> Add New Bus
-                        </a>
-                    </div>
-                </c:if>
-            </div>
+        <div class="col-lg-4">
+            <c:if test="${sessionScope.account.username eq 'admin'}">
+                <div class="d-grid">
+                    <a href="${pageContext.request.contextPath}/views/add-bus" class="btn btn-success btn-lg">
+                        <i class="bi bi-plus-circle"></i> Add New Bus
+                    </a>
+                </div>
+            </c:if>
         </div>
+    </div>
+        
+    <hr class="my-4" />
         
         <!-- Bus Listings -->
         <h2 class="mb-4"><i class="bi bi-bus-front"></i> Available Buses</h2>
-        <div class="row">
-            <c:forEach items="${buses}" var="bus">
+         <div class="row">
+            <!-- Iterate over the ticketList -->
+            <c:forEach var="ticket" items="${ticketList}">
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100 shadow-sm hover-effect">
-                        <div class="position-relative">
-                            <img src="${pageContext.request.contextPath}/static/images/bus_image.jpg" alt="Bus Image" class="card-img-top">
-                            <div class="position-absolute top-0 end-0 bg-primary text-white p-2 m-2 rounded">
-                                <strong>${bus.busNumber}</strong>
-                            </div>
+                    <div class="card shadow-sm h-100">
+                        <div class="card-header bg-info text-white">
+                            <strong>Bus #${ticket.busNumber}</strong>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">${bus.route}</h5>
-                            <div class="d-flex align-items-center mb-2">
-                                <i class="bi bi-clock text-primary me-2"></i>
-                                <span>${bus.time}</span>
-                            </div>
-                            <div class="d-flex align-items-center mb-2">
-                                <i class="bi bi-people text-primary me-2"></i>
-                                <span>Available Seats: ${bus.availableSeats}</span>
-                            </div>
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="bi bi-currency-dollar text-success me-2"></i>
-                                <span class="fw-bold">VND ${bus.price}</span>
-                            </div>
+                            <p><strong>Route:</strong> ${ticket.route}</p>
+                            <p><strong>Price:</strong> VND ${ticket.price}</p>
+                            <p><strong>Type:</strong> ${ticket.type}</p>
                         </div>
-                        <div class="card-footer bg-white border-top-0 d-flex justify-content-between">
-                            <a href="${pageContext.request.contextPath}/views/buy-ticket?busId=${bus.id}" class="btn btn-primary">
-                                <i class="bi bi-ticket-perforated"></i> Buy Ticket
-                            </a>
-                            <c:if test="${sessionScope.account.username eq 'admin'}">
-                                <a href="${pageContext.request.contextPath}/views/edit-bus?busId=${bus.id}" class="btn btn-outline-secondary">
-                                    <i class="bi bi-pencil"></i> Edit
-                                </a>
-                            </c:if>
-                        </div>
+                    </div>
+                </div>
+            </c:forEach>
+
+        <c:if test="${empty ticketList}">
+            <div class="col-12">
+                <div class="alert alert-warning text-center">
+                    No ticket information found.
+                </div>
+            </div>
+        </c:if>
+    </div>
                     </div>
                 </div>
             </c:forEach>

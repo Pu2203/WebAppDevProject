@@ -9,7 +9,7 @@
 <!-- Hero Section -->
 <section class="py-5 bg-light text-center">
     <div class="container px-5">
-        <h1 class="display-4 fw-bold">Welcome to Bus Ticket System</h1>
+        <h1 class="display-4 fw-bold">Welcome to Digital Bus Pass System</h1>
         <p class="lead mb-4">Book bus tickets quickly, conveniently and safely</p>
         <a href="${pageContext.request.contextPath}/views/buy-ticket" class="btn btn-primary btn-lg">
             <i class="bi bi-ticket-perforated"></i> Book Now
