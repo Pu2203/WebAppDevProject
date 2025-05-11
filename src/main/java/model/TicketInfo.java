@@ -20,7 +20,6 @@ public class TicketInfo {
         this.origin = origin;
         this.destination = destination;
         this.price = price;
-
     }
 
     public String getRouteNumber() { return routeNumber; }

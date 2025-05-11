@@ -3,6 +3,9 @@ package DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.sql.ResultSet;
+
 import model.Payment;
 
 public class PaymentDB {
@@ -34,5 +37,33 @@ public class PaymentDB {
             try { if (pstmt != null) pstmt.close(); } catch (Exception e) {}
             try { if (conn != null) conn.close(); } catch (Exception e) {}
         }
+    }
+
+    public static boolean hasActiveBusPass(int accountId) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            // Use DBConnection utility to get connection
+            conn = DBConnection.getConnection();
+
+            String sql = "SELECT COUNT(*) FROM Payment WHERE account_id = ? AND pass_id IS NOT NULL AND payment_date + INTERVAL 1 MONTH >= ?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, accountId);
+            pstmt.setDate(2, java.sql.Date.valueOf(LocalDate.now()));
+
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1) > 0; // Return true if there is an active bus pass
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try { if (rs != null) rs.close(); } catch (Exception e) {}
+            try { if (pstmt != null) pstmt.close(); } catch (Exception e) {}
+            try { if (conn != null) conn.close(); } catch (Exception e) {}
+        }
+        return false;
     }
 }

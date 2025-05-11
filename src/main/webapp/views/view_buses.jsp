@@ -22,7 +22,7 @@
                             <div class="col-md-6">
                                 <h6><strong>One Month Pass:</strong></h6>
                                 <p>Price: VND 150,000</p>
-                                <a href="${pageContext.request.contextPath}/views/payment.jsp?type=OneMonth&price=150000" 
+                                <a href="${pageContext.request.contextPath}/views/payment.jsp?type=Monthly&price=150000" 
                                 class="btn btn-success mt-3">
                                     <i class="bi bi-card-checklist"></i> Purchase One Month Pass
                                 </a>
@@ -31,7 +31,7 @@
                             <div class="col-md-6">
                                 <h6><strong>One Year Pass:</strong></h6>
                                 <p>Price: VND 1,500,000</p>
-                                <a href="${pageContext.request.contextPath}/views/payment.jsp?type=OneYear&price=1500000" 
+                                <a href="${pageContext.request.contextPath}/views/payment.jsp?type=Anually&price=1500000" 
                                 class="btn btn-success mt-3">
                                     <i class="bi bi-card-checklist"></i> Purchase One Year Pass
                                 </a>
@@ -54,19 +54,19 @@
                             <h4 class="mb-0"><i class="bi bi-search"></i> Search Buses</h4>
                         </div>
                         <div class="card-body">
-                            <form method="POST" action="${pageContext.request.contextPath}/SearchServlet" class="row g-3">
+                            <form method="POST" action="${pageContext.request.contextPath}/BusServlet" class="row g-3">
                                 <div class="col-md-6">
                                     <div class="input-group">
                                         <span class="input-group-text"><i class="bi bi-search"></i></span>
-                                        <input type="text" id="search_query" name="search_query" placeholder="Search" class="form-control" onkeyup="autocomplete()">
+                                        <input type="text" id="search_query" name="search_query" placeholder="Search by route" class="form-control" onkeyup="autocomplete()">
                                     </div>
                                     <div id="suggestions" class="dropdown-menu"></div>
                                 </div>
                                 <div class="col-md-3">
-                                    <select id="sort_by" name="sort_by" class="form-select" >
-                                        <option value="" disabled ${empty param.sort_by ? 'selected' : ''}>Search by</option>
+                                    <select id="sort_by" name="sort_by" class="form-select" onchange="this.form.submit()">
+                                        <option value="" disabled ${empty param.sort_by ? 'selected' : ''}>Route</option>
                                         <option value="time" ${param.sort_by eq 'OnD' ? 'selected' : ''}>Origin - Destination</option>
-                                        <option value="bus_number" ${param.sort_by eq 'Route' ? 'selected' : ''}>Route</option>
+                                        <option value="bus_number" ${param.sort_by eq 'bus_number' ? 'selected' : ''}>Bus Number</option>
                                     </select>
                                 </div>
                                 <div class="col-md-3">
@@ -96,7 +96,7 @@
                                 <p><strong>Origin:</strong> ${ticket.origin}</p>
                                 <p><strong>Destination:</strong> ${ticket.destination}</p>
                                 <p><strong>Price:</strong> VND ${ticket.price}</p>
-                                <a href="${pageContext.request.contextPath}/views/buy-ticket" class="btn btn-success mt-3">
+                                <a href="${pageContext.request.contextPath}/views/paymentTicket.jsp?route=${ticket.routeNumber}&origin=${ticket.origin}&destination=${ticket.destination}&price=${ticket.price}"  class="btn btn-success mt-3">
                                     <i class="bi bi-card-checklist"></i> Purchase Ticket
                                 </a>
                             </div>

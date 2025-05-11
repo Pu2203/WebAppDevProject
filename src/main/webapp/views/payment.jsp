@@ -18,10 +18,10 @@
                         <p><strong>Price:</strong> VND ${param.price}</p>
                         <p><strong>Expiration Date:</strong> 
                             <c:choose>
-                                <c:when test="${param.type == 'OneMonth'}">
+                                <c:when test="${param.type == 'Monthly'}">
                                     This pass will expire in 1 month from the date of purchase.
                                 </c:when>
-                                <c:when test="${param.type == 'OneYear'}">
+                                <c:when test="${param.type == 'Annually'}">
                                     This pass will expire in 1 year from the date of purchase.
                                 </c:when>
                                 <c:otherwise>
