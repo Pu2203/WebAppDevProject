@@ -38,6 +38,11 @@
                     <ul class="navbar-nav">
                         <c:if test="${not empty sessionScope.account.username}">
                             <li class="nav-item">
+                                <span class="navbar-text text-white me-3">
+                                    Welcome, ${sessionScope.account.username} | Balance: VND ${sessionScope.account.balance}
+                                </span>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link ${param.page eq 'tickets' ? 'active' : ''}" href="${pageContext.request.contextPath}/views/my-tickets">
                                     <i class="bi bi-journal-check"></i> My Tickets
                                 </a>
@@ -71,4 +76,4 @@
         </nav>
     </header>
     <!-- Main content starts after this -->
-    <main class="container py-4"> 
+    <main class="container py-4">

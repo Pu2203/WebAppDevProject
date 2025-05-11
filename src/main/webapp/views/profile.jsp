@@ -17,6 +17,7 @@
                             <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="rounded-circle shadow-sm" width="120">
                             <div class="mt-3">
                                 <h5>${sessionScope.account.username}</h5>
+                                <h5>${sessionScope.account.balance}</h5>
                                 <p class="text-muted mb-1">${sessionScope.user.gender}</p>
                             </div>
                         </div>

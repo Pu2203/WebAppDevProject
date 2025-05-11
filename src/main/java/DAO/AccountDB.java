@@ -59,4 +59,28 @@ public class AccountDB {
         
         return account;
     }
+
+    public static boolean updateBalance(int account_id, int newBalance) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            // Use DBConnection utility to get connection
+            conn = DBConnection.getConnection();
+
+            String sql = "UPDATE Account SET balance = ? WHERE account_id = ?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, newBalance);
+            pstmt.setInt(2, account_id);
+
+            int rowsUpdated = pstmt.executeUpdate();
+            return rowsUpdated > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            try { if (pstmt != null) pstmt.close(); } catch (Exception e) {}
+            try { if (conn != null) conn.close(); } catch (Exception e) {}
+        }
+    }
 }

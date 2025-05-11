@@ -23,7 +23,7 @@ public class AccountBean {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.balance = 0;
+        this.balance = balance;
         this.role = role;
         this.userId = userId;
     }

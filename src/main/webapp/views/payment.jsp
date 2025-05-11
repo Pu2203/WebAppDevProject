@@ -19,11 +19,14 @@
                         <p><strong>Expiration Date:</strong> 
                             <c:choose>
                                 <c:when test="${param.type == 'OneMonth'}">
-                                    ${pageContext.request.time + 30 * 24 * 60 * 60 * 1000}
+                                    This pass will expire in 1 month from the date of purchase.
                                 </c:when>
                                 <c:when test="${param.type == 'OneYear'}">
-                                    ${pageContext.request.time + 365 * 24 * 60 * 60 * 1000}
+                                    This pass will expire in 1 year from the date of purchase.
                                 </c:when>
+                                <c:otherwise>
+                                    Invalid bus pass type.
+                                </c:otherwise>
                             </c:choose>
                         </p>
                         <form action="${pageContext.request.contextPath}/PaymentServlet" method="post">
