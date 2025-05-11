@@ -9,25 +9,31 @@ package model;
  * @author ADMIN
  */
 public class TicketInfo {
-    private String busNumber;
-    private String route;
+    private String routeNumber;
+    private String origin;
+    private String destination;
     private int price;
 
 
-    public TicketInfo(String busNumber, String route, int price) {
-        this.busNumber = busNumber;
-        this.route = route;
+    public TicketInfo(String routeNumber, String origin, String destination, int price) {
+        this.routeNumber = routeNumber;
+        this.origin = origin;
+        this.destination = destination;
         this.price = price;
 
     }
 
-    public String getBusNumber() { return busNumber; }
-    public String getRoute() { return route; }
+    public String getRouteNumber() { return routeNumber; }
+    public String getOrigin() { return origin; }
+    public String getDestination() { return destination; }
+
     public int getPrice() { return price; }
 
 
-    public void setBusNumber(String busNumber) { this.busNumber = busNumber; }
-    public void setRoute(String route) { this.route = route; }
+    public void setRouteNumber(String routeNumber) { this.routeNumber = routeNumber; }
+    public void setOrigin(String origin) { this.origin = origin; }
+    public void setDestination(String destination) { this.destination = destination; }
+
     public void setPrice(int price) { this.price = price; }
 
 }

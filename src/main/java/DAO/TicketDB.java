@@ -26,17 +26,17 @@ public class TicketDB {
             // Use DBConnection utility to get connection
             conn = DBConnection.getConnection();
 
-            String sql = "SELECT b.license_plate AS busNumber, r.route_name AS route, t.ticket_price AS price " +
+            String sql = "SELECT r.route_name AS RouteNumber, r.origin as Origin, r.destination as Destination, t.ticket_price AS price " +
                         "FROM Ticket t " +
-                        "JOIN BusRoute r ON t.ticket_id = r.ticket_id " +
-                        "JOIN Bus b ON r.route_id = b.route_id";
+                        "JOIN BusRoute r ON t.ticket_id = r.ticket_id ";
             pstmt = conn.prepareStatement(sql);
             rs = pstmt.executeQuery();
 
             while (rs.next()) {
                 TicketInfo ticket = new TicketInfo(
-                    rs.getString("busNumber"),
-                    rs.getString("route"),
+                    rs.getString("RouteNumber"),
+                    rs.getString("Origin"),
+                    rs.getString("Destination"),
                     rs.getInt("price")
 
                 );

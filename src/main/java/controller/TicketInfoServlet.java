@@ -27,14 +27,8 @@ public class TicketInfoServlet extends HttpServlet {
             TicketDB ticketDB = new TicketDB();
             List<TicketInfo> ticketList = ticketDB.getAllTicketInfo();
             HttpSession session = request.getSession();
-
-            // Debug: Print the ticket list
-            System.out.println("Ticket list size: " + ticketList.size());
-            for (TicketInfo ticket : ticketList) {
-                System.out.println("Ticket: " + ticket.getBusNumber() + ", " + ticket.getRoute());
-            }
-
-            // Set the ticket list as a request attribute
+            
+            // Set the ticket list as a session attribute
             session.setAttribute("ticketList", ticketList);
 
             // Forward to the JSP page

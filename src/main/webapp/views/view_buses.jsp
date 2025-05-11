@@ -79,10 +79,11 @@
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card shadow-sm h-100">
                             <div class="card-header bg-info text-white">
-                                ${ticket.busNumber}
+                                ${ticket.routeNumber}
                             </div>
                             <div class="card-body">
-                                <p><strong>Route:</strong> ${ticket.route}</p>
+                                <p><strong>Origin:</strong> ${ticket.origin}</p>
+                                <p><strong>Destination:</strong> ${ticket.destination}</p>
                                 <p><strong>Price:</strong> VND ${ticket.price}</p>
                             </div>
                         </div>
