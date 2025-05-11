@@ -54,7 +54,7 @@
                             <h4 class="mb-0"><i class="bi bi-search"></i> Search Buses</h4>
                         </div>
                         <div class="card-body">
-                            <form method="POST" action="${pageContext.request.contextPath}/BusServlet" class="row g-3">
+                            <form method="POST" action="${pageContext.request.contextPath}/SearchServlet" class="row g-3">
                                 <div class="col-md-6">
                                     <div class="input-group">
                                         <span class="input-group-text"><i class="bi bi-search"></i></span>

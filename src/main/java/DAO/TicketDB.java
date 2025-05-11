@@ -16,7 +16,7 @@ import java.util.*;
  * @author ADMIN
  */
 public class TicketDB {
-    public List<TicketInfo> getAllTicketInfo() {
+    public static List<TicketInfo> getAllTicketInfo() {
         List<TicketInfo> tickets = new ArrayList<>();
         Connection conn = null;
         PreparedStatement pstmt = null;
