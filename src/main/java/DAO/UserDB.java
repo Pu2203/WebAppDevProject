@@ -68,7 +68,8 @@ public class UserDB {
             pstmt.setInt(1, userId);
             rs = pstmt.executeQuery();
             if (rs.next()){
-                UserBean user = new UserBean(rs.getInt("user_id"), rs.getString("user_phone_number"), rs.getString("user_mail"), rs.getString("full_name"), rs.getString("gender"), rs.getDate("DoB"));
+                UserBean user = new UserBean(rs.getInt("user_id"), rs.getString("user_phone_number"), 
+                        rs.getString("user_mail"), rs.getString("full_name"), rs.getString("gender"), rs.getDate("DoB"));
                 return user;
             }
             else{

@@ -26,6 +26,7 @@ public class TicketInfoServlet extends HttpServlet {
         try (Connection conn = DBConnection.getConnection()) {
             TicketDB ticketDB = new TicketDB();
             List<TicketInfo> ticketList = ticketDB.getAllTicketInfo();
+            HttpSession session = request.getSession();
 
             // Debug: Print the ticket list
             System.out.println("Ticket list size: " + ticketList.size());
@@ -34,10 +35,10 @@ public class TicketInfoServlet extends HttpServlet {
             }
 
             // Set the ticket list as a request attribute
-            request.setAttribute("ticketList", ticketList);
+            session.setAttribute("ticketList", ticketList);
 
             // Forward to the JSP page
-            request.getRequestDispatcher("/views/ticketList.jsp").forward(request, response);
+            request.getRequestDispatcher("/views/view_buses.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             throw new ServletException("Error loading ticket info", e);
