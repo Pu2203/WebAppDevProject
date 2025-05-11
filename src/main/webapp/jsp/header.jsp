@@ -30,7 +30,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link ${param.page eq 'buses' ? 'active' : ''}" href="TicketInfoServlet">
+                            <a class="nav-link ${param.page eq 'buses' ? 'active' : ''}" href="${pageContext.request.contextPath}/TicketInfoServlet">
                                 <i class="bi bi-bus-front"></i> Buses
                             </a>
                         </li>

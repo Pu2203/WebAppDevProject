@@ -51,8 +51,8 @@
                                 </div>
                                 <div class="col-md-3">
                                     <select id="sort_by" name="sort_by" class="form-select" onchange="this.form.submit()">
-                                        <option value="" disabled ${empty param.sort_by ? 'selected' : ''}>Sort by</option>
-                                        <option value="time" ${param.sort_by eq 'time' ? 'selected' : ''}>Time</option>
+                                        <option value="" disabled ${empty param.sort_by ? 'selected' : ''}>Route</option>
+                                        <option value="time" ${param.sort_by eq 'OnD' ? 'selected' : ''}>Origin - Destination</option>
                                         <option value="bus_number" ${param.sort_by eq 'bus_number' ? 'selected' : ''}>Bus Number</option>
                                     </select>
                                 </div>
