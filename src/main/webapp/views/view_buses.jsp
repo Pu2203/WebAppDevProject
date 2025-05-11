@@ -54,7 +54,7 @@
                             <h4 class="mb-0"><i class="bi bi-search"></i> Search Buses</h4>
                         </div>
                         <div class="card-body">
-                            <form method="POST" action="${pageContext.request.contextPath}/BusServlet" class="row g-3">
+                            <form method="POST" action="${pageContext.request.contextPath}/SearchServlet" class="row g-3">
                                 <div class="col-md-6">
                                     <div class="input-group">
                                         <span class="input-group-text"><i class="bi bi-search"></i></span>
@@ -63,10 +63,10 @@
                                     <div id="suggestions" class="dropdown-menu"></div>
                                 </div>
                                 <div class="col-md-3">
-                                    <select id="sort_by" name="sort_by" class="form-select" onchange="this.form.submit()">
-                                        <option value="" disabled ${empty param.sort_by ? 'selected' : ''}>Route</option>
+                                    <select id="sort_by" name="sort_by" class="form-select" ">
+                                        <option value="" disabled ${empty param.sort_by ? 'selected' : ''}>Search by</option>
                                         <option value="time" ${param.sort_by eq 'OnD' ? 'selected' : ''}>Origin - Destination</option>
-                                        <option value="bus_number" ${param.sort_by eq 'bus_number' ? 'selected' : ''}>Bus Number</option>
+                                        <option value="bus_number" ${param.sort_by eq 'Route' ? 'selected' : ''}>Route</option>
                                     </select>
                                 </div>
                                 <div class="col-md-3">

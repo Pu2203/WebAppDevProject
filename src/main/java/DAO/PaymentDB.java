@@ -40,7 +40,6 @@ public class PaymentDB {
             try { if (conn != null) conn.close(); } catch (Exception e) {}
         }
     }
-<<<<<<< Updated upstream
 
     public static boolean hasActiveBusPass(int accountId) {
         Connection conn = null;
@@ -68,7 +67,7 @@ public class PaymentDB {
             try { if (conn != null) conn.close(); } catch (Exception e) {}
         }
         return false;
-=======
+    }
     public static Payment getPayment(int accountId){
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -100,6 +99,5 @@ public class PaymentDB {
             try { if (conn != null) conn.close(); } catch (Exception e) {}
         }
         return null;
->>>>>>> Stashed changes
     }
 }
