@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 import DAO.AccountDB;
 import DAO.PaymentDB;
+import java.sql.Date;
+import java.time.ZoneId;
 import model.AccountBean;
 import model.Payment;
 import model.UserBean;
@@ -47,12 +49,15 @@ public class PaymentServlet extends HttpServlet {
                     boolean isUpdated = AccountDB.updateBalance(userAccount.getId(), newBalance);
 
                     if (isUpdated) {
+                        LocalDate localDate = LocalDate.now();
+                        Date date = (Date) Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+
                         // Insert payment information into the database
                         Payment payment = new Payment(
                             0, // paymentId (auto-generated)
                             userAccount.getId(), // account_id
                             type.equals("OneMonth") ? 1 : 2, // pass_id (1 for OneMonth, 2 for OneYear)
-                            LocalDate.now(), // payment_date
+                            date, // payment_date
                             "Balance", // payment_method
                             "Success" // payment_status
                         );
