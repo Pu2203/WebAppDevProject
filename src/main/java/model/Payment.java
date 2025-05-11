@@ -1,6 +1,5 @@
 package model;
 
-import java.sql.Date;
 import java.time.LocalDate;
 
 public class Payment {
@@ -8,11 +7,11 @@ public class Payment {
     private int userId;
     private int passId; // Add passId field
     private String paymentMethod;
-    private Date paymentDate;
+    private LocalDate paymentDate;
     private String paymentStatus;
 
     // Constructor
-    public Payment(int paymentId, int userId, int passId, Date paymentDate, String paymentMethod, String paymentStatus) {
+    public Payment(int paymentId, int userId, int passId, LocalDate paymentDate, String paymentMethod, String paymentStatus) {
         this.paymentId = paymentId;
         this.userId = userId;
         this.passId = passId; // Initialize passId
@@ -38,7 +37,7 @@ public class Payment {
         return paymentMethod;
     }
 
-    public Date getPaymentDate() {
+    public LocalDate getPaymentDate() {
         return paymentDate;
     }
 
@@ -63,7 +62,7 @@ public class Payment {
         this.paymentMethod = paymentMethod;
     }
 
-    public void setPaymentDate(Date paymentDate) {
+    public void setPaymentDate(LocalDate paymentDate) {
         this.paymentDate = paymentDate;
     }
 

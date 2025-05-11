@@ -108,48 +108,6 @@
                 </c:if>
             </div>
         </div>
-        <hr>   
-        <div class="row mb-4">
-            <div class="col">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h2><i class="bi bi-ticket-perforated"></i> My Pass</h2>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="card shadow-sm">
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-striped table-hover">
-                        <thead class="table-primary">
-                            <tr>
-                                <th>Ticket ID</th>
-                                <th>Bus Number</th>
-                                <th>Route</th>
-                                <th>Customer Name</th>
-                                <th>Seats</th>
-                                <th>Time</th>
-                                <th>Total Price</th>
-                                <th>Status</th>
-                                <th>QR Code</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
-                        </tbody>
-                    </table>
-                </div>
-                
-                <c:if test="${empty tickets}">
-                    <div class="alert alert-info text-center" role="alert">
-                        <i class="bi bi-info-circle me-2"></i> You don't have BusPass yet.
-                        <a href="${pageContext.request.contextPath}/views/buy-ticket" class="alert-link">Buy your Pass</a>
-                    </div>
-                </c:if>
-            </div>
-        </div>
     </div>
 </section>
 

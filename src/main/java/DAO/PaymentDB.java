@@ -2,13 +2,11 @@ package DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.sql.ResultSet;
 
 import model.Payment;
-import model.TicketInfo;
 
 public class PaymentDB {
     public static boolean insertPayment(Payment payment) {
@@ -25,7 +23,7 @@ public class PaymentDB {
 
             pstmt.setInt(1, payment.getUserId());
             pstmt.setInt(2, payment.getPassId()); // Use getPassId() instead of getPaymentId()
-            pstmt.setDate(3, payment.getPaymentDate());
+            pstmt.setDate(3, java.sql.Date.valueOf(payment.getPaymentDate()));
             pstmt.setString(4, payment.getPaymentMethod());
             pstmt.setString(5, payment.getPaymentStatus());
 
@@ -67,37 +65,5 @@ public class PaymentDB {
             try { if (conn != null) conn.close(); } catch (Exception e) {}
         }
         return false;
-    }
-    public static Payment getPayment(int accountId){
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-        try{
-            conn = DBConnection.getConnection();
-
-            String sql = "Select * From Payment WHERE account_id = ?";
-            pstmt.setInt(1, accountId);
-            pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            rs = pstmt.executeQuery();
-
-            while (rs.next()) {
-                Payment pass = new Payment(rs.getInt("payment_id"),
-                    rs.getInt("account_id"),
-                    rs.getInt("pass_id"),
-                    rs.getDate("payment_date"),
-                    rs.getString("payment_method"),
-                    rs.getString("payment_status")
-
-                );
-                return pass;
-               
-            }
-        } catch (Exception e) {
-            e.printStackTrace();            
-        } finally {
-            try { if (pstmt != null) pstmt.close(); } catch (Exception e) {}
-            try { if (conn != null) conn.close(); } catch (Exception e) {}
-        }
-        return null;
     }
 }
