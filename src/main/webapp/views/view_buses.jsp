@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:include page="/jsp/header.jsp">
     <jsp:param name="title" value="View Buses" />
     <jsp:param name="page" value="buses" />
 </jsp:include>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <section class="py-5">
     <div class="container">
         <!-- Bus Pass Section -->
@@ -21,7 +21,7 @@
                             <li><strong>Monthly Pass:</strong> VND 150,000</li>
                             <li><strong>Yearly Pass:</strong> VND 1,500,000</li>
                         </ul>
-                        <a href="${pageContext.request.contextPath}/views/buy-pass" class="btn btn-success mt-3">
+                        <a href="${pageContext.request.contextPath}/views/buy-ticket" class="btn btn-success mt-3">
                             <i class="bi bi-card-checklist"></i> Purchase Bus Pass
                         </a>
                     </div>
@@ -65,8 +65,6 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
 
             <hr class="my-4" />
@@ -85,6 +83,9 @@
                                 <p><strong>Origin:</strong> ${ticket.origin}</p>
                                 <p><strong>Destination:</strong> ${ticket.destination}</p>
                                 <p><strong>Price:</strong> VND ${ticket.price}</p>
+                                <a href="${pageContext.request.contextPath}/views/buy-ticket" class="btn btn-success mt-3">
+                                    <i class="bi bi-card-checklist"></i> Purchase Ticket
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -100,14 +101,6 @@
             </div>
         </div>
     </div>
-
-<c:if test="${empty buses}">
-    <div class="col-12">
-        <div class="alert alert-info text-center" role="alert">
-            <i class="bi bi-info-circle me-2"></i> No buses found matching your criteria.
-        </div>
-    </div>
-</c:if>
 </section>
 
 <jsp:include page="/jsp/footer.jsp" /> 

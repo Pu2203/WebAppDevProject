@@ -19,7 +19,7 @@ import model.TicketInfo; // Ensure this matches the actual package of the Ticket
  *
  * @author ADMIN
  */
-@WebServlet(name = "TicketInfoServlet", urlPatterns = {"/TicketInfoServlet"})
+@WebServlet(name = "TicketInfoServlet", urlPatterns = {"/TicketInfoServlet"},loadOnStartup = 1)
 public class TicketInfoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {

@@ -31,12 +31,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link ${param.page eq 'buses' ? 'active' : ''}" href="${pageContext.request.contextPath}/TicketInfoServlet">
-                                <i class="bi bi-bus-front"></i> Buses
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link ${param.page eq 'buy' ? 'active' : ''}" href="${pageContext.request.contextPath}/views/buy-ticket">
-                                <i class="bi bi-ticket-perforated"></i> Buy Tickets
+                                <i class="bi bi-bus-front"></i> Buy Ticket/Bus Pass
                             </a>
                         </li>
                     </ul>
