@@ -30,7 +30,6 @@
                                 <th>Route</th>
                                 <th>Origin Bus Stop</th>
                                 <th>Destination Bus Stop</th>
-                                <th>QR Code</th>
                             </tr>
                         </thead>
                         <tbody>
