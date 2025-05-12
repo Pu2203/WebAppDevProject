@@ -43,7 +43,7 @@
                                 </span>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link ${param.page eq 'tickets' ? 'active' : ''}" href="${pageContext.request.contextPath}/views/my-tickets">
+                                <a class="nav-link ${param.page eq 'tickets' ? 'active' : ''}" href="${pageContext.request.contextPath}/CartServlet">
                                     <i class="bi bi-journal-check"></i> My Tickets
                                 </a>
                             </li>

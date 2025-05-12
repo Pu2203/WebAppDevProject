@@ -20,6 +20,7 @@ public class PaymentTicket {
         this.paymentMethod = paymentMethod;
         this.paymentStatus = paymentStatus;
     }
+    
 
     // Getters
     public int getPaymentTicketId() {

@@ -8,20 +8,23 @@ package model;
  *
  * @author huynh
  */
-public class Cart {
+public class CartTicket {
     private int cartId;
     private int accountId;
     private int paymentId;
-    private String cartType;
-    private String cartStatus;
+    private String route;
+    private String origin;
+    private String destination;
     
     //Constructor
-    public Cart(int cartId, int accountId, int paymentId, String cartType, String cartStatus){
+    public CartTicket(int cartId, int paymentId, int accountId, String route, String origin, String destination){
         this.cartId = cartId;
         this.accountId = accountId;
         this.paymentId = paymentId;
-        this.cartType = cartType;
-        this.cartStatus = cartStatus;
+        this.route = route;
+        this.origin = origin;
+        this.destination = destination;
+
     }
     
     // Getters
@@ -37,12 +40,16 @@ public class Cart {
         return paymentId;
     }
     
-    public String getCartType() {
-        return cartType;
+    public String getRoute(){
+        return route;
     }
     
-    public String getCartStatus() {
-        return cartStatus;
+    public String getorigin() {
+        return origin;
+    }
+    
+    public String getDestination() {
+        return destination;
     }
     
     // Setters
@@ -58,11 +65,15 @@ public class Cart {
         this.paymentId = paymentId;
     }
     
-    public void setCartType(String cartType) {
-        this.cartType = cartType;
+    public void setRoute(String route) {
+        this.route = route;
     }
     
-    public void setCartStatus(String cartStatus) {
-        this.cartStatus = cartStatus;
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
+    
+    public void setDestination(String destination) {
+        this.destination = destination;
     }
 }

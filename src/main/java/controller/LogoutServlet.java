@@ -4,6 +4,7 @@
  */
 package controller;
 
+import DAO.CartDB;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -66,7 +67,7 @@ public class LogoutServlet extends HttpServlet {
             // Xoá hết tất cả attribute trong session
             session.invalidate();
         }
-
+        CartDB.deleteCart();
         // Chuyển hướng về trang login.jsp
         response.sendRedirect("home.jsp");
     }

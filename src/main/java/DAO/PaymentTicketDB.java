@@ -2,7 +2,11 @@ package DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import model.Payment;
 import model.PaymentTicket;
 
 public class PaymentTicketDB {
@@ -34,5 +38,46 @@ public class PaymentTicketDB {
             try { if (pstmt != null) pstmt.close(); } catch (Exception e) {}
             try { if (conn != null) conn.close(); } catch (Exception e) {}
         }
+    }
+    public static List<PaymentTicket> getPaymentTicket(int accountId){
+        List<PaymentTicket> paymentTickets = new ArrayList<>();
+        
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            // Use DBConnection utility to get connection
+            conn = DBConnection.getConnection();
+
+            String sql = "SELECT * " +
+                         "FROM Payment " +
+                         "WHERE account_id = ? " +
+                         "AND ticket_id IS NOT NULL";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, accountId);
+
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                PaymentTicket paymentTicket = new PaymentTicket(
+                    rs.getInt("payment_id"),
+                    rs.getInt("account_id"),
+                    rs.getInt("ticket_id"),
+                    rs.getDate("payment_date").toLocalDate(),
+                    rs.getString("payment_method"),
+                    rs.getString("payment_status")
+                );
+                
+               paymentTickets.add(paymentTicket);
+            }
+            } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try { if (rs != null) rs.close(); } catch (Exception e) {}
+            try { if (pstmt != null) pstmt.close(); } catch (Exception e) {}
+            try { if (conn != null) conn.close(); } catch (Exception e) {}
+        }
+        return paymentTickets;
     }
 }

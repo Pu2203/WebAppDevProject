@@ -38,6 +38,47 @@ public class PaymentDB {
             try { if (conn != null) conn.close(); } catch (Exception e) {}
         }
     }
+    public static Payment getPayment(int accountId){
+        Payment payment = null;
+        
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            // Use DBConnection utility to get connection
+            conn = DBConnection.getConnection();
+
+            String sql = "SELECT * " +
+                         "FROM Payment " +
+                         "WHERE account_id = ? " +
+                         "AND ((payment_date >= NOW() - INTERVAL 1 MONTH AND pass_id = 1) " +
+                         "OR (payment_date >= NOW() - INTERVAL 1 YEAR AND pass_id = 2)) " +
+                         "ORDER BY payment_date DESC;";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, accountId);
+
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                payment = new Payment(
+                    rs.getInt("cart_id"),
+                    rs.getInt("account_id"),
+                    rs.getInt("pass_id"),
+                    rs.getDate("payment_date").toLocalDate(),
+                    rs.getString("cart_type"),
+                    rs.getString("cart_status")
+                );
+            }
+            } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try { if (rs != null) rs.close(); } catch (Exception e) {}
+            try { if (pstmt != null) pstmt.close(); } catch (Exception e) {}
+            try { if (conn != null) conn.close(); } catch (Exception e) {}
+        }
+        return payment;
+    }
 
     public static boolean hasActiveBusPass(int accountId) {
         Connection conn = null;
@@ -66,4 +107,5 @@ public class PaymentDB {
         }
         return false;
     }
+    
 }
