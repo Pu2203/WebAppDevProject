@@ -99,7 +99,7 @@
                                 <p><strong>Origin:</strong> ${ticket.origin}</p>
                                 <p><strong>Destination:</strong> ${ticket.destination}</p>
                                 <p><strong>Price:</strong> VND ${ticket.price}</p>
-                                <a href="${pageContext.request.contextPath}/views/paymentTicket.jsp?route=${ticket.routeNumber}&origin=${ticket.origin}&destination=${ticket.destination}&price=${ticket.price}"  class="btn btn-success mt-3">
+                                <a href="${pageContext.request.contextPath}/views/paymentTicket.jsp?ticketId=${ticket.ticketId}&route=${ticket.routeNumber}&origin=${ticket.origin}&destination=${ticket.destination}&price=${ticket.price}"  class="btn btn-success mt-3">
                                     <i class="bi bi-card-checklist"></i> Purchase Ticket
                                 </a>
                             </div>

@@ -16,11 +16,11 @@ public class PaymentTicketServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int price = Integer.parseInt(request.getParameter("price"));
-
+        int ticketId = Integer.parseInt(request.getParameter("ticketId"));
         // Get the logged-in user's account from the session
         HttpSession session = request.getSession();
         UserBean user = (UserBean) session.getAttribute("user");
-
+        
         if (user != null) {
             // Retrieve the AccountBean from the session
             AccountBean userAccount = (AccountBean) session.getAttribute("account");
@@ -40,7 +40,8 @@ public class PaymentTicketServlet extends HttpServlet {
                         // Insert ticket payment information into the database
                         PaymentTicket paymentTicket = new PaymentTicket(
                             0, // paymentTicketId (auto-generated)
-                            userAccount.getId(), // account_id // ticket_id
+                            userAccount.getId(), // account_id 
+                            ticketId,// ticket_id
                             LocalDate.now(), // payment_date
                             "Balance", // payment_method
                             "Success" // payment_status

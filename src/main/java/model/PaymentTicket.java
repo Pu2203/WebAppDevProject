@@ -3,16 +3,19 @@ package model;
 import java.time.LocalDate;
 
 public class PaymentTicket {
+
     private int paymentTicketId;
     private int accountId;
+    private int ticketId;
     private LocalDate paymentDate;
     private String paymentMethod;
     private String paymentStatus;
 
     // Constructor
-    public PaymentTicket(int paymentTicketId, int accountId, LocalDate paymentDate, String paymentMethod, String paymentStatus) {
+    public PaymentTicket(int paymentTicketId, int accountId, int ticketId, LocalDate paymentDate, String paymentMethod, String paymentStatus) {
         this.paymentTicketId = paymentTicketId;
         this.accountId = accountId;
+        this.ticketId = ticketId;
         this.paymentDate = paymentDate;
         this.paymentMethod = paymentMethod;
         this.paymentStatus = paymentStatus;
@@ -25,6 +28,10 @@ public class PaymentTicket {
 
     public int getAccountId() {
         return accountId;
+    }
+
+    public int getTicketId() {
+        return ticketId;
     }
 
     public LocalDate getPaymentDate() {
@@ -48,6 +55,9 @@ public class PaymentTicket {
         this.accountId = accountId;
     }
 
+    public void setTicketId(int ticketId) {
+        this.ticketId = ticketId;
+    }
 
     public void setPaymentDate(LocalDate paymentDate) {
         this.paymentDate = paymentDate;

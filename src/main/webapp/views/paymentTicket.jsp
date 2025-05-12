@@ -20,6 +20,7 @@
                         <p><strong>Price:</strong> VND ${param.price}</p>
                         <form action="${pageContext.request.contextPath}/PaymentTicketServlet" method="post">
                             <input type="hidden" name="price" value="${param.price}" />
+                            <input type="hidden" name="ticketId" value="${param.ticketId}" />
                             <button type="submit" class="btn btn-success w-100">
                                 <i class="bi bi-cash"></i> Confirm Payment
                             </button>
