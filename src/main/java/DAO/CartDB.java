@@ -164,9 +164,14 @@ public class CartDB {
             // Use DBConnection utility to get connection
             conn = DBConnection.getConnection();
 
-            String sql = "SELECT * "
-                    + "FROM Cart "
-                    + "WHERE account_id = ? "
+            String sql = "SELECT c.cart_id as cart_id, c.account_id as account_id, "
+                    + "c.payment_id, p.payment_date as payment_date, c.cart_type as cart_type, "
+                    + "c.cart_status as cart_status, u.full_name as full_name, u.user_mail as user_email, a.account_type as account_type "
+                    + "FROM Cart c "
+                    + "JOIN Payment p ON p.payment_id = c.payment_id "
+                    + "JOIN Account a ON a.account_id = c.account_id "
+                    + "JOIN `User` u ON u.user_id = a.user_id "
+                    + "WHERE c.account_id = ? "
                     + "AND cart_type LIKE '%Pass%' ";
 
             pstmt = conn.prepareStatement(sql);
@@ -178,8 +183,13 @@ public class CartDB {
                         rs.getInt("cart_id"),
                         rs.getInt("account_id"),
                         rs.getInt("payment_id"),
+                        rs.getDate("payment_date").toLocalDate(),
                         rs.getString("cart_type"),
-                        rs.getString("cart_status")
+                        rs.getString("cart_status"),
+                        rs.getString("full_name"),
+                        rs.getString("user_email"),
+                        rs.getString("account_type")
+
                 );
 
             }

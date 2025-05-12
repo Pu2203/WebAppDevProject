@@ -62,12 +62,12 @@ public class PaymentDB {
 
             if (rs.next()) {
                 payment = new Payment(
-                    rs.getInt("cart_id"),
+                    rs.getInt("payment_id"),
                     rs.getInt("account_id"),
                     rs.getInt("pass_id"),
                     rs.getDate("payment_date").toLocalDate(),
-                    rs.getString("cart_type"),
-                    rs.getString("cart_status")
+                    rs.getString("payment_method"),
+                    rs.getString("payment_status")
                 );
             }
             } catch (Exception e) {
