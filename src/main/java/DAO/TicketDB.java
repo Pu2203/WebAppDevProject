@@ -16,6 +16,10 @@ import java.util.*;
  * @author ADMIN
  */
 public class TicketDB {
+    public static void insert(TicketInfo ticket){
+        
+        return;
+    }
     public static List<TicketInfo> getAllTicketInfo() {
         List<TicketInfo> tickets = new ArrayList<>();
         Connection conn = null;
@@ -26,7 +30,7 @@ public class TicketDB {
             // Use DBConnection utility to get connection
             conn = DBConnection.getConnection();
 
-            String sql = "SELECT r.route_name AS RouteNumber, r.origin as Origin, r.destination as Destination, t.ticket_price AS price " +
+            String sql = "SELECT r.ticket_id AS ticketId, r.route_name AS RouteNumber, r.origin as Origin, r.destination as Destination, t.ticket_price AS price " +
                         "FROM Ticket t " +
                         "JOIN BusRoute r ON t.ticket_id = r.ticket_id ";
             pstmt = conn.prepareStatement(sql);
@@ -34,6 +38,7 @@ public class TicketDB {
 
             while (rs.next()) {
                 TicketInfo ticket = new TicketInfo(
+                    rs.getInt("ticketId"),
                     rs.getString("RouteNumber"),
                     rs.getString("Origin"),
                     rs.getString("Destination"),

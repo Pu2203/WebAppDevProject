@@ -23,7 +23,7 @@
                                 <h6><strong>One Month Pass:</strong></h6>
                                 <p>Price: VND 150,000</p>
                                 <a href="${pageContext.request.contextPath}/views/payment.jsp?type=Monthly&price=150000" 
-                                class="btn btn-success mt-3">
+                                   class="btn btn-success mt-3">
                                     <i class="bi bi-card-checklist"></i> Purchase One Month Pass
                                 </a>
                             </div>
@@ -32,7 +32,7 @@
                                 <h6><strong>One Year Pass:</strong></h6>
                                 <p>Price: VND 1,500,000</p>
                                 <a href="${pageContext.request.contextPath}/views/payment.jsp?type=Anually&price=1500000" 
-                                class="btn btn-success mt-3">
+                                   class="btn btn-success mt-3">
                                     <i class="bi bi-card-checklist"></i> Purchase One Year Pass
                                 </a>
                             </div>
@@ -89,9 +89,12 @@
                 <c:forEach var="ticket" items="${sessionScope.ticketList}">
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card shadow-sm h-100">
-                            <div class="card-header bg-info text-white">
-                                ${ticket.routeNumber}
+
+                            <div class="card-header bg-info text-white d-flex">
+                                <span>${ticket.routeNumber}</span>
+                                <span class="ms-auto">Ticket #${ticket.ticketId}</span>
                             </div>
+
                             <div class="card-body">
                                 <p><strong>Origin:</strong> ${ticket.origin}</p>
                                 <p><strong>Destination:</strong> ${ticket.destination}</p>
