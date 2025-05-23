@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.time.LocalDate;
 import DAO.AccountDB;
+import DAO.CartDB;
 import DAO.PaymentTicketDB;
 import model.AccountBean;
 import model.PaymentTicket;
@@ -40,15 +41,16 @@ public class PaymentTicketServlet extends HttpServlet {
                         // Insert ticket payment information into the database
                         PaymentTicket paymentTicket = new PaymentTicket(
                             0, // paymentTicketId (auto-generated)
-                            userAccount.getId(), // account_id 
+                               userAccount.getId(), // account_id 
                             ticketId,// ticket_id
                             LocalDate.now(), // payment_date
                             "Balance", // payment_method
                             "Success" // payment_status
                         );
-
+                        
                         boolean isPaymentInserted = PaymentTicketDB.insertPaymentTicket(paymentTicket);
-
+                        
+                        
                         if (isPaymentInserted) {
                             // Update the session with the new balance
                             session.setAttribute("account", userAccount);

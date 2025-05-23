@@ -172,7 +172,10 @@ public class CartDB {
                     + "JOIN Account a ON a.account_id = c.account_id "
                     + "JOIN `User` u ON u.user_id = a.user_id "
                     + "WHERE c.account_id = ? "
-                    + "AND cart_type LIKE '%Pass%' ";
+                    + "AND cart_type LIKE '%Pass%' "
+                    + "AND ((p.payment_date >= NOW() - INTERVAL 1 MONTH AND p.pass_id = 1) "
+                    + "OR (p.payment_date >= NOW() - INTERVAL 1 YEAR AND p.pass_id = 2)) "
+                    +     "ORDER BY payment_date DESC;";
 
             pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, accountId);

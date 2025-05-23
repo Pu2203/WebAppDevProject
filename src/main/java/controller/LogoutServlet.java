@@ -67,7 +67,6 @@ public class LogoutServlet extends HttpServlet {
             // Xoá hết tất cả attribute trong session
             session.invalidate();
         }
-        CartDB.deleteCart();
         // Chuyển hướng về trang login.jsp
         response.sendRedirect("home.jsp");
     }

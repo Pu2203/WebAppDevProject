@@ -33,15 +33,9 @@ public class CartServlet extends HttpServlet {
             throws ServletException, IOException {
         
         HttpSession session = request.getSession();
-        CartDB.deleteCart();
         AccountBean account = (AccountBean) session.getAttribute("account");
         int accountId = account.getId();
         Payment pass = PaymentDB.getPayment(accountId);
-        List<PaymentTicket> paymentTickets = PaymentTicketDB.getPaymentTicket(accountId);
-        for (PaymentTicket paymentTicket : paymentTickets){
-            CartDB.addPaymentTicket(paymentTicket);
-        }
-        CartDB.addPayment(pass);
         Cart getPass = CartDB.getCartPass(accountId);
         List <CartTicket> getTickets= CartDB.getCartTicket(accountId);
         

@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.time.LocalDate;
 import DAO.AccountDB;
+import DAO.CartDB;
 import DAO.PaymentDB;
 import model.AccountBean;
 import model.Payment;
@@ -42,7 +43,7 @@ public class PaymentServlet extends HttpServlet {
                     // Deduct the price from the user's balance
                     int newBalance = currentBalance - price;
                     userAccount.setBalance(newBalance);
-
+                    
                     // Update the balance in the database
                     boolean isUpdated = AccountDB.updateBalance(userAccount.getId(), newBalance);
 
@@ -56,9 +57,9 @@ public class PaymentServlet extends HttpServlet {
                             "Balance", // payment_method
                             "Success" // payment_status
                         );
-
+                        
                         boolean isPaymentInserted = PaymentDB.insertPayment(payment);
-
+                        
                         if (isPaymentInserted) {
                             // Update the session with the new balance
                             session.setAttribute("account", userAccount);
