@@ -80,7 +80,7 @@ public class RegisterServlet extends HttpServlet {
         if (user.getId() == -1) {
             user.setId(userId);
         }
-        AccountBean account = new AccountBean(-1, username, password, 0, role, userId);
+        AccountBean account = new AccountBean(-1, username, password, 200000, role, userId);
         int accountId = AccountDB.insert(account);
         if (account.getId() == -1) {
             account.setId(accountId);
