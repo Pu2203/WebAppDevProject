@@ -17,7 +17,10 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="${pageContext.request.contextPath}/home">Bus Ticket System</a>
+                
+                <a class="navbar-brand" href="${pageContext.request.contextPath}/home"> 
+                    <img src="${pageContext.request.contextPath}/img/img.png" alt="Logo" 
+                        style="width: 45px; height: 45px; margin-right: 8px;">Bus Ticket System</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -38,7 +41,7 @@
                     <ul class="navbar-nav">
                         <c:if test="${not empty sessionScope.account.username}">
                             <li class="nav-item">
-                                <span class="navbar-text text-white me-3">
+                                <span class="navbar-text nav-link text-white me-3">
                                     Welcome, ${sessionScope.account.username} | Balance: VND ${sessionScope.account.balance}
                                 </span>
                             </li>

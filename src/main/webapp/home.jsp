@@ -13,6 +13,8 @@
     <div class="container px-5">
         <h1 class="display-4 fw-bold">Welcome to Digital Bus Pass System</h1>
         <p class="lead mb-4">Book bus tickets quickly, conveniently and safely</p>
+        <img src="${pageContext.request.contextPath}/img/img.png" alt="Logo" style="width: 250px; height: 250px;">
+        <br>
         <a href="${pageContext.request.contextPath}/TicketInfoServlet" class="btn btn-primary btn-lg">
             <i class="bi bi-ticket-perforated"></i> Book Now
         </a>
@@ -68,7 +70,7 @@
 </section><!--
 
 <!-- Popular Routes Section -->
-<%--<section class="py-5 bg-light">
+<!--<section class="py-5 bg-light">
     <div class="container">
         <h2 class="text-center mb-5">Popular Routes</h2>
         <div class="row">
@@ -146,6 +148,6 @@
             </div>
         </div>
     </div>
-</section>--%>
+</section>--!>
 
 <jsp:include page="/jsp/footer.jsp" />
