@@ -85,9 +85,6 @@ public class RegisterServlet extends HttpServlet {
         if (account.getId() == -1) {
             account.setId(accountId);
         }
-
-
-
         request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 }
