@@ -126,4 +126,13 @@
         <url-pattern>/views/manage-accounts</url-pattern>
     </servlet-mapping>
     
+    <servlet>
+        <servlet-name>ChangePassServlet</servlet-name>
+        <jsp-file>/views/change_password.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChangePassServlet</servlet-name>
+        <url-pattern>/views/change-password</url-pattern>
+    </servlet-mapping>
+    
 </web-app>
