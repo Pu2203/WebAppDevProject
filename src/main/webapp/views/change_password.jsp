@@ -3,6 +3,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<jsp:include page="/jsp/logo.jsp"></jsp:include>
+
 <jsp:include page="/jsp/header.jsp">
     <jsp:param name="title" value="changePassword" />
     <jsp:param name="page" value="changePassword" />

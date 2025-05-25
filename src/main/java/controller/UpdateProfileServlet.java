@@ -53,7 +53,7 @@ public class UpdateProfileServlet extends HttpServlet {
             stmt.setString(3, phone);
             stmt.setString(4, gender);
             stmt.setDate(5, dob);
-            stmt.setInt(5, id);
+            stmt.setInt(6, id);
 
             stmt.executeUpdate();
             UserBean newUser = new UserBean(id, phone, email, name, gender, dob);
