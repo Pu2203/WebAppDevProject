@@ -24,7 +24,7 @@
                                 <label for="password" class="form-label">Current Password</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="bi bi-person"></i></span>
-                                    <input type="text" class="form-control" id="currentPass" name="currentPass" required placeholder="Enter current password">
+                                    <input type="password" class="form-control" id="currentPass" name="currentPass" required placeholder="Enter current password">
                                 </div>
                             </div>
                             
