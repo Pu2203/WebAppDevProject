@@ -28,7 +28,7 @@ public class UserDB {
             String sql = "INSERT INTO User (full_name, DoB, gender, user_mail, user_phone_number) VALUES (?, ?, ?, ?, ?)";
             pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             pstmt.setString(1, user.getFname());
-            pstmt.setDate(2, user.getDoB());
+            pstmt.setDate(2, user.getDob());
             pstmt.setString(3, user.getGender());
             pstmt.setString(4, user.getEmail());
             pstmt.setString(5, user.getPhone());

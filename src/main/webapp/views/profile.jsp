@@ -58,9 +58,20 @@
                                 
                                 <div class="col-md-6 mb-3">
                                     <label for="name" class="form-label">Full Name</label>
-                                    <input type="text" class="form-control" id="name" name="name" value="${sessionScope.user.fname}" required>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                        <input type="text" class="form-control" id="name" name="name" value="${sessionScope.user.fname}" required>
+                                    </div>
                                 </div>
                                 
+                                <div class="col-md-6 mb-3">
+                                    <label for="dob" class="form-label">Date of Birth</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                                        <input type="date" class="form-control" id="dob" name="dob" value="${sessionScope.user.dob}" required>
+                                    </div>
+                                </div>
+                                    
                                 <div class="col-md-6 mb-3">
                                     <label for="email" class="form-label">Email</label>
                                     <div class="input-group">

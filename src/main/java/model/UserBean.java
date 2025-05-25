@@ -49,6 +49,6 @@ public class UserBean {
     public String getGender() { return gender; }
     public void setGender(String gender) { this.gender = gender; }
 
-    public Date getDoB() { return dob; }
-    public void setDoB(Date dob) { this.dob = dob; }
+    public Date getDob() { return dob; }
+    public void setDob(Date dob) { this.dob = dob; }
 }
