@@ -63,6 +63,7 @@ public class ChangePasswordServlet extends HttpServlet {
                     stmtchange = conn.prepareStatement(change);
                     stmtchange.setString(1, newPass);
                     stmtchange.setString(2, username);
+                    stmtchange.executeUpdate();
                     account.setPassword(newPass);
                     stmtchange.close();
                     request.setAttribute("message", "Change password successful!");
