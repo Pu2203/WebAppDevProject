@@ -52,7 +52,7 @@ public class PaymentServlet extends HttpServlet {
                         Payment payment = new Payment(
                             0, // paymentId (auto-generated)
                             userAccount.getId(), // account_id
-                            type.equals("OneMonth") ? 1 : 2, // pass_id (1 for OneMonth, 2 for OneYear)
+                            type.equals("Monthly") ? 1 : 2, // pass_id (1 for OneMonth, 2 for OneYear)
                             LocalDate.now(), // payment_date
                             "Balance", // payment_method
                             "Success" // payment_status

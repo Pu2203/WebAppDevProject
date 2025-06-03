@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import model.AccountBean;
 
 /**
@@ -60,7 +62,7 @@ public class AccountDB {
         return account;
     }
 
-    public static boolean updateBalance(int account_id, int newBalance) {
+    public static boolean updateBalance(int accountId, int amount) {
         Connection conn = null;
         PreparedStatement pstmt = null;
 
@@ -70,8 +72,8 @@ public class AccountDB {
 
             String sql = "UPDATE Account SET balance = ? WHERE account_id = ?";
             pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, newBalance);
-            pstmt.setInt(2, account_id);
+            pstmt.setInt(1, amount + DAO.AccountDB.getAccountById(accountId).getBalance()); // Add amount to current balance
+            pstmt.setInt(2, accountId);
 
             int rowsUpdated = pstmt.executeUpdate();
             return rowsUpdated > 0;
@@ -82,5 +84,103 @@ public class AccountDB {
             try { if (pstmt != null) pstmt.close(); } catch (Exception e) {}
             try { if (conn != null) conn.close(); } catch (Exception e) {}
         }
+    }
+    public static boolean deleteAccount(int accountId) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            // Use DBConnection utility to get connection
+            conn = DBConnection.getConnection();
+
+            String sql = "DELETE FROM Account WHERE account_id = ?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, accountId);
+
+            // Execute the delete statements
+            int rowsDeleted = pstmt.executeUpdate();
+            return rowsDeleted > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            try { if (pstmt != null) pstmt.close(); } catch (Exception e) {}
+            try { if (conn != null) conn.close(); } catch (Exception e) {}
+        }
+    }
+    public static AccountBean getAccountById(int accountId) {
+        AccountBean account = null;
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            // Use DBConnection utility to get connection
+            conn = DBConnection.getConnection();
+
+            String sql = "SELECT * FROM Account WHERE account_id = ?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, accountId);
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                account = new AccountBean(
+                        rs.getInt("account_id"),
+                        rs.getString("username"),
+                        rs.getString("password"), // Note: Password should be handled securely
+                        rs.getInt("balance"),
+                        rs.getString("account_type"),
+                        rs.getInt("User_id")
+                );
+                
+                account.setTicketCount(DAO.PaymentTicketDB.countTicketsPurchased(account.getId()));
+                account.setPassId(DAO.PaymentDB.getPassId(account.getId()));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try { if (rs != null) rs.close(); } catch (Exception e) {}
+            try { if (pstmt != null) pstmt.close(); } catch (Exception e) {}
+            try { if (conn != null) conn.close(); } catch (Exception e) {}
+        }
+        return account;
+    }
+    public static List<AccountBean> getAllAccounts() {
+        List<AccountBean> accountList = new ArrayList<>();
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            // Use DBConnection utility to get connection
+            conn = DBConnection.getConnection();
+
+            String sql = "SELECT * FROM Account";
+            pstmt = conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                AccountBean account = new AccountBean(
+                        rs.getInt("account_id"),
+                        rs.getString("username"),
+                        rs.getString("password"), // Note: Password should be handled securely
+                        rs.getInt("balance"),
+                        rs.getString("account_type"),
+                        rs.getInt("User_id")
+                );
+                
+                account.setTicketCount(DAO.PaymentTicketDB.countTicketsPurchased(account.getId()));
+                account.setPassId(DAO.PaymentDB.getPassId(account.getId()));
+                accountList.add(account);
+            }
+            return accountList;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try { if (rs != null) rs.close(); } catch (Exception e) {}
+            try { if (pstmt != null) pstmt.close(); } catch (Exception e) {}
+            try { if (conn != null) conn.close(); } catch (Exception e) {}
+        }
+        return null;
     }
 }

@@ -127,4 +127,32 @@ public class PaymentTicketDB {
         }
         return null;
     }
+    public static int countTicketsPurchased(int accountId) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            // Use DBConnection utility to get connection
+            conn = DBConnection.getConnection();
+
+            String sql = "SELECT COUNT(*) FROM Payment WHERE account_id = ? AND pass_id IS NULL";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, accountId);
+
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1); // Return the count of tickets purchased
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            
+        } finally {
+            try { if (rs != null) rs.close(); } catch (Exception e) {}
+            try { if (pstmt != null) pstmt.close(); } catch (Exception e) {}
+            try { if (conn != null) conn.close(); } catch (Exception e) {}
+        }
+           return 0;
+    }
 }

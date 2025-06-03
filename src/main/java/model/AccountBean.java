@@ -16,6 +16,7 @@ public class AccountBean {
     private String role;
     private int userId;
     private int passId;
+    private int ticketCount;
     private int paymentId;
 
     public AccountBean() {}
@@ -86,6 +87,12 @@ public class AccountBean {
         this.passId = passId;
     }
 
+    public int getTicketCount() {
+        return ticketCount;
+    }
+    public void setTicketCount(int ticketCount) {
+        this.ticketCount = ticketCount;
+    }
     public int getPaymentId() {
         return paymentId;
     }

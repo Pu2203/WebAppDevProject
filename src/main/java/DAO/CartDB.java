@@ -243,4 +243,26 @@ public class CartDB {
         }
 
     }
+    public static boolean deleteCartByAccountId(int accountId) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            // Use DBConnection utility to get connection
+            conn = DBConnection.getConnection();
+
+            String sql = "DELETE FROM Cart WHERE account_id = ?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, accountId);
+
+            int rowsDeleted = pstmt.executeUpdate();
+            return rowsDeleted > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            try { if (pstmt != null) pstmt.close(); } catch (Exception e) {}
+            try { if (conn != null) conn.close(); } catch (Exception e) {}
+        }
+    }   
 }

@@ -83,4 +83,5 @@ public class PaymentTicketServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/login");
         }
     }
+        
 }

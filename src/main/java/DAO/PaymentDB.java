@@ -153,5 +153,52 @@ public class PaymentDB {
         }
         return false;
     }
-    
+    public static int getPassId(int accountId) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            // Use DBConnection utility to get connection
+            conn = DBConnection.getConnection();
+
+            String sql = "SELECT pass_id FROM Payment WHERE account_id = ? AND pass_id IS NOT NULL ORDER BY payment_date DESC LIMIT 1";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, accountId);
+
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("pass_id");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try { if (rs != null) rs.close(); } catch (Exception e) {}
+            try { if (pstmt != null) pstmt.close(); } catch (Exception e) {}
+            try { if (conn != null) conn.close(); } catch (Exception e) {}
+        }
+        return 0;
+    }
+    public static boolean deletePaymentByAccountId(int accountId) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            // Use DBConnection utility to get connection
+            conn = DBConnection.getConnection();
+
+            String sql = "DELETE FROM Payment WHERE account_id = ?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, accountId);
+
+            int affectedRows = pstmt.executeUpdate();
+            return affectedRows > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try { if (pstmt != null) pstmt.close(); } catch (Exception e) {}
+            try { if (conn != null) conn.close(); } catch (Exception e) {}
+        }
+        return false;
+    }   
 }
