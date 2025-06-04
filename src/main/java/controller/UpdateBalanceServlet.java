@@ -27,9 +27,10 @@ public class UpdateBalanceServlet extends HttpServlet {
             
             if (newBalance > 0) {
                 AccountBean account = (AccountBean) request.getSession().getAttribute("account");
-                
-                account.setBalance(newBalance);
-                request.getSession().setAttribute("account", account);
+                if (accountId == account.getId()){
+                    account.setBalance(newBalance);
+                    request.getSession().setAttribute("account", account);
+                }
                 message =String.format("Balance of acount ID: %d updated to %d successfully.", accountId, newBalance);
             } else {
                 message = "Failed to update balance. Please try again.";
