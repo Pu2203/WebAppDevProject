@@ -27,7 +27,7 @@
                             <a href="${pageContext.request.contextPath}/views/profile" class="list-group-item list-group-item-action active">
                                 <i class="bi bi-person-circle me-2"></i> Profile
                             </a>
-                            <a href="${pageContext.request.contextPath}/views/my-tickets" class="list-group-item list-group-item-action">
+                            <a href="${pageContext.request.contextPath}/CartServlet" class="list-group-item list-group-item-action">
                                 <i class="bi bi-ticket-perforated me-2"></i> My Tickets
                             </a>
                             <a href="${pageContext.request.contextPath}/views/change-password" class="list-group-item list-group-item-action">

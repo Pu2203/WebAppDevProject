@@ -115,6 +115,6 @@ public class SearchServlet extends HttpServlet {
         request.getSession().setAttribute("ticketList", filteredList);
 
         // Forward về JSP
-        request.getRequestDispatcher("/views/view_buses.jsp").forward(request, response);
+        request.getRequestDispatcher("/view_bus/view_buses.jsp").forward(request, response);
     }
 }

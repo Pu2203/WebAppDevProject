@@ -29,7 +29,7 @@ import model.UserBean;
 public class ChangePasswordServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-        String url = "views/change_password.jsp";
+        String url = "views/change_password";
         HttpSession session = request.getSession();
         AccountBean account = (AccountBean) session.getAttribute("account");
         String username = account.getUsername();

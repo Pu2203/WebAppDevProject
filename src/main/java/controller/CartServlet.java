@@ -41,7 +41,7 @@ public class CartServlet extends HttpServlet {
         
         session.setAttribute("getPass", getPass);
         session.setAttribute("getTickets", getTickets);
-        response.sendRedirect(request.getContextPath() + "/views/my_tickets.jsp");
+        response.sendRedirect(request.getContextPath() + "/User/my_tickets.jsp");
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

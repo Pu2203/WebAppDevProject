@@ -26,7 +26,7 @@ public class PaymentServlet extends HttpServlet {
         if (user != null) {
             // Retrieve the AccountBean from the session
             AccountBean userAccount = (AccountBean) session.getAttribute("account");
-
+            userAccount = DAO.AccountDB.getAccountById(userAccount.getId());
             if (userAccount != null) {
                 // Check if the user already has an active bus pass
                 boolean hasActiveBusPass = PaymentDB.hasActiveBusPass(userAccount.getId());
@@ -66,31 +66,31 @@ public class PaymentServlet extends HttpServlet {
                             session.setAttribute("account", userAccount);
 
                             // Redirect to success page
-                            request.setAttribute("message", "Payment successful! You purchased a " + type + " pass.");
-                            request.getRequestDispatcher("/views/payment_success.jsp").forward(request, response);
+                            request.getSession().setAttribute("message", "Payment successful! You purchased a " + type + " pass.");
+                            response.sendRedirect("Transaction/payment_success.jsp");
                         } else {
                             // Redirect to failure page if payment insertion fails
                             request.setAttribute("message", "Payment failed due to a system error. Please try again.");
-                            request.getRequestDispatcher("/views/payment_failure.jsp").forward(request, response);
+                            request.getRequestDispatcher("/Transaction/payment_failure.jsp").forward(request, response);
                         }
                     } else {
                         // Redirect to failure page if balance update fails
                         request.setAttribute("message", "Payment failed due to a system error. Please try again.");
-                        request.getRequestDispatcher("/views/payment_failure.jsp").forward(request, response);
+                        request.getRequestDispatcher("/Transaction/payment_failure.jsp").forward(request, response);
                     }
                 } else {
                     // Redirect to failure page if insufficient balance
                     request.setAttribute("message", "Insufficient balance. Please top up your account.");
-                    request.getRequestDispatcher("/views/payment_failure.jsp").forward(request, response);
+                    request.getRequestDispatcher("/Transaction/payment_failure.jsp").forward(request, response);
                 }
             } else {
                 // Redirect to failure page if account is not found
                 request.setAttribute("message", "Account not found. Please contact support.");
-                request.getRequestDispatcher("/views/payment_failure.jsp").forward(request, response);
+                request.getRequestDispatcher("/Transaction/payment_failure.jsp").forward(request, response);
             }
         } else {
             // Redirect to login page if user is not logged in
-            response.sendRedirect(request.getContextPath() + "/login");
+            response.sendRedirect(request.getContextPath() + "/User/login");
         }
     }
 }

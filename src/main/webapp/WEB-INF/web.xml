@@ -25,7 +25,7 @@
     
     <servlet>
         <servlet-name>Login</servlet-name>
-        <jsp-file>/login.jsp</jsp-file>
+        <jsp-file>/User/login.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
@@ -34,7 +34,7 @@
     
     <servlet>
         <servlet-name>Register</servlet-name>
-        <jsp-file>/register.jsp</jsp-file>
+        <jsp-file>/User/register.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>Register</servlet-name>
@@ -43,7 +43,7 @@
     
     <servlet>
         <servlet-name>AccountServlet</servlet-name>
-        <jsp-file>/account.jsp</jsp-file>
+        <jsp-file>/User/account.jsp</jsp-file>
     </servlet>
     
     <servlet-mapping>
@@ -54,7 +54,7 @@
     <!-- URL Mappings for Views Pages -->
     <servlet>
         <servlet-name>ViewBusesServlet</servlet-name>
-        <jsp-file>/views/view_buses.jsp</jsp-file>
+        <jsp-file>/view_bus/view_buses.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>ViewBusesServlet</servlet-name>
@@ -82,7 +82,7 @@
     
     <servlet>
         <servlet-name>BuyTicketServlet</servlet-name>
-        <jsp-file>/views/buy_ticket.jsp</jsp-file>
+        <jsp-file>/Transaction/buy_ticket.jsp</jsp-file>
     </servlet>
     
     <servlet-mapping>
@@ -92,7 +92,7 @@
     
     <servlet>
         <servlet-name>MyTicketsServlet</servlet-name>
-        <jsp-file>/views/my_tickets.jsp</jsp-file>
+        <jsp-file>/User/my_tickets.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>MyTicketsServlet</servlet-name>
@@ -101,7 +101,7 @@
     
     <servlet>
         <servlet-name>TicketServlet</servlet-name>
-        <jsp-file>/views/ticket.jsp</jsp-file>
+        <jsp-file>/User/ticket.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>TicketServlet</servlet-name>
@@ -110,7 +110,7 @@
     
     <servlet>
         <servlet-name>ProfileServlet</servlet-name>
-        <jsp-file>/views/profile.jsp</jsp-file>
+        <jsp-file>/User/profile.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>ProfileServlet</servlet-name>
@@ -119,16 +119,16 @@
     
     <servlet>
         <servlet-name>ManageAccountsServlet</servlet-name>
-        <jsp-file>/views/manage_accounts.jsp</jsp-file>
+        <jsp-file>/User/manage.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>ManageAccountsServlet</servlet-name>
-        <url-pattern>/views/manage-accounts</url-pattern>
+        <url-pattern>/views/manage</url-pattern>
     </servlet-mapping>
     
     <servlet>
         <servlet-name>ChangePassServlet</servlet-name>
-        <jsp-file>/views/change_password.jsp</jsp-file>
+        <jsp-file>/User/change_password.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>ChangePassServlet</servlet-name>

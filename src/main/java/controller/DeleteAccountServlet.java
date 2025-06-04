@@ -60,7 +60,7 @@ public class DeleteAccountServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Forward to the delete account page
-        request.getRequestDispatcher("/views/manage.jsp").forward(request, response);   
+        request.getRequestDispatcher("/views/manage").forward(request, response);   
     }
 
     /**

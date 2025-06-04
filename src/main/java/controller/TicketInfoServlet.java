@@ -32,7 +32,7 @@ public class TicketInfoServlet extends HttpServlet {
             session.setAttribute("ticketList", ticketList);
 
             // Forward to the JSP page
-            request.getRequestDispatcher("/views/view_buses.jsp").forward(request, response);
+            request.getRequestDispatcher("/view_bus/view_buses.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             throw new ServletException("Error loading ticket info", e);

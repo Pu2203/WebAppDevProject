@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/static/styles.css">
         <!-- Bootstrap Icons -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-        <meta http-equiv="refresh" content="10">
+        
     </head>
     <body>
         <header>

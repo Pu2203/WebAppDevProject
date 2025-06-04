@@ -57,7 +57,7 @@ public class RegisterServlet extends HttpServlet {
 
             if (rs.next()) {
                 request.setAttribute("error", "Username " + username + " existed.");
-                request.getRequestDispatcher("/register.jsp").forward(request, response);
+                request.getRequestDispatcher("User/register.jsp").forward(request, response);
                 return;
             }
 
@@ -70,7 +70,7 @@ public class RegisterServlet extends HttpServlet {
         if (password == null || confirmPassword == null || !password.equals(confirmPassword)) {
             // Passwords don't match — set error message
             request.setAttribute("error", "Passwords do not match. Please try again.");
-            request.getRequestDispatcher("/register.jsp").forward(request, response);
+            request.getRequestDispatcher("User/register.jsp").forward(request, response);
             return;
         }
 
@@ -85,6 +85,6 @@ public class RegisterServlet extends HttpServlet {
         if (account.getId() == -1) {
             account.setId(accountId);
         }
-        request.getRequestDispatcher("login.jsp").forward(request, response);
+        request.getRequestDispatcher("User/login.jsp").forward(request, response);
     }
 }

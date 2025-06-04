@@ -64,7 +64,7 @@ public class AdminServlet extends HttpServlet {
         session.setAttribute("accountList", accountList);
         session.setAttribute("userList", userList);
         // Forward to JSP (not redirect)
-        request.getRequestDispatcher("/views/manage.jsp").forward(request, response);
+        request.getRequestDispatcher("/views/manage").forward(request, response);
     }
 
 

@@ -69,7 +69,7 @@ public class UpdateProfileServlet extends HttpServlet {
         }
 
         // Forward back to login.jsp with message or error
-        RequestDispatcher dispatcher = request.getRequestDispatcher("views/profile.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("User/profile.jsp");
         dispatcher.forward(request, response);
     
         
