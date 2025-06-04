@@ -69,10 +69,10 @@ public class AccountDB {
         try {
             // Use DBConnection utility to get connection
             conn = DBConnection.getConnection();
-            
+            int oldBalance = getBalance(accountId);
             String sql = "UPDATE Account SET balance = ? WHERE account_id = ?";
             pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, amount + DAO.AccountDB.getAccountById(accountId).getBalance()); // Add amount to current balance
+            pstmt.setInt(1, amount + oldBalance); // Add amount to current balance
             pstmt.setInt(2, accountId);
             
             int rowsUpdated = pstmt.executeUpdate();
