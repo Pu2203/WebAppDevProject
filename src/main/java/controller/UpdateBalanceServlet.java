@@ -21,15 +21,16 @@ public class UpdateBalanceServlet extends HttpServlet {
         String message;
         try {
             int accountId = Integer.parseInt(request.getParameter("accountId"));
-            int newBalance = Integer.parseInt(request.getParameter("newBalance"));
+            int amount = Integer.parseInt(request.getParameter("newBalance"));
 
-            boolean updated = DAO.AccountDB.updateBalance(accountId, newBalance);
-
-            if (updated) {
+            int newBalance = DAO.AccountDB.updateBalance(accountId, amount);
+            
+            if (newBalance > 0) {
                 AccountBean account = (AccountBean) request.getSession().getAttribute("account");
-                account.setBalance(Integer.parseInt(request.getParameter("newBalance")) + account.getBalance());
+                
+                account.setBalance(newBalance);
                 request.getSession().setAttribute("account", account);
-                message = "Balance updated successfully.";
+                message =String.format("Balance of acount ID: %d updated to %d successfully.", accountId, newBalance);
             } else {
                 message = "Failed to update balance. Please try again.";
             }

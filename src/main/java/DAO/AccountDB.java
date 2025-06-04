@@ -62,28 +62,33 @@ public class AccountDB {
         return account;
     }
 
-    public static boolean updateBalance(int accountId, int amount) {
+    public static int updateBalance(int accountId, int amount) {
         Connection conn = null;
         PreparedStatement pstmt = null;
 
         try {
             // Use DBConnection utility to get connection
             conn = DBConnection.getConnection();
-
+            
             String sql = "UPDATE Account SET balance = ? WHERE account_id = ?";
             pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, amount + DAO.AccountDB.getAccountById(accountId).getBalance()); // Add amount to current balance
             pstmt.setInt(2, accountId);
-
+            
             int rowsUpdated = pstmt.executeUpdate();
-            return rowsUpdated > 0;
+            
+            if (rowsUpdated > 0){
+                int newBalance = getBalance(accountId);
+                return newBalance;
+            }
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return -1;
         } finally {
             try { if (pstmt != null) pstmt.close(); } catch (Exception e) {}
             try { if (conn != null) conn.close(); } catch (Exception e) {}
         }
+        return -1;
     }
     public static boolean deleteAccount(int accountId) {
         Connection conn = null;
@@ -182,5 +187,12 @@ public class AccountDB {
             try { if (conn != null) conn.close(); } catch (Exception e) {}
         }
         return null;
+    }
+    public static int getBalance(int accountId) {
+        AccountBean account = getAccountById(accountId);
+        if (account != null) {
+            return account.getBalance();
+        }
+        return -1;
     }
 }

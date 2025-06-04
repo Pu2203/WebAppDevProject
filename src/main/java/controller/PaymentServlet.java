@@ -41,13 +41,14 @@ public class PaymentServlet extends HttpServlet {
 
                 if (currentBalance >= price) {
                     // Deduct the price from the user's balance
-                    int newBalance = currentBalance - price;
-                    userAccount.setBalance(newBalance);
+                    int amount = -price;
+                    
                     
                     // Update the balance in the database
-                    boolean isUpdated = AccountDB.updateBalance(userAccount.getId(), newBalance);
-
-                    if (isUpdated) {
+                    int newBalance = AccountDB.updateBalance(userAccount.getId(), amount);
+                    userAccount.setBalance(newBalance); // Update the balance in the AccountBean
+                    if (newBalance > 0) {
+                        
                         // Insert payment information into the database
                         Payment payment = new Payment(
                             0, // paymentId (auto-generated)
