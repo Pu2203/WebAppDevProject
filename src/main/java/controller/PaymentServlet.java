@@ -33,7 +33,7 @@ public class PaymentServlet extends HttpServlet {
                 if (hasActiveBusPass) {
                     // Redirect to failure page if the user already has an active bus pass
                     request.setAttribute("message", "You already have an active bus pass. You can only purchase a new one after the current pass expires.");
-                    request.getRequestDispatcher("/views/payment_failure.jsp").forward(request, response);
+                    request.getRequestDispatcher("/Transaction/payment_failure.jsp").forward(request, response);
                     return;
                 }
 

@@ -24,7 +24,7 @@
                             <div class="col-md-6">
                                 <h6><strong>One Month Pass:</strong></h6>
                                 <p>Price: VND 150,000</p>
-                                <a href="${pageContext.request.contextPath}/views/payment.jsp?type=Monthly&price=150000" 
+                                <a href="${pageContext.request.contextPath}/Transaction/payment.jsp?type=Monthly&price=150000" 
                                    class="btn btn-success mt-3">
                                     <i class="bi bi-card-checklist"></i> Purchase One Month Pass
                                 </a>
@@ -33,7 +33,7 @@
                             <div class="col-md-6">
                                 <h6><strong>One Year Pass:</strong></h6>
                                 <p>Price: VND 1,500,000</p>
-                                <a href="${pageContext.request.contextPath}/views/payment.jsp?type=Anually&price=1500000" 
+                                <a href="${pageContext.request.contextPath}/Transaction/payment.jsp?type=Anually&price=1500000" 
                                    class="btn btn-success mt-3">
                                     <i class="bi bi-card-checklist"></i> Purchase One Year Pass
                                 </a>
@@ -101,7 +101,7 @@
                                 <p><strong>Origin:</strong> ${ticket.origin}</p>
                                 <p><strong>Destination:</strong> ${ticket.destination}</p>
                                 <p><strong>Price:</strong> VND ${ticket.price}</p>
-                                <a href="${pageContext.request.contextPath}/views/paymentTicket.jsp?ticketId=${ticket.ticketId}&route=${ticket.routeNumber}&origin=${ticket.origin}&destination=${ticket.destination}&price=${ticket.price}"  class="btn btn-success mt-3">
+                                <a href="${pageContext.request.contextPath}/Transaction/paymentTicket.jsp?ticketId=${ticket.ticketId}&route=${ticket.routeNumber}&origin=${ticket.origin}&destination=${ticket.destination}&price=${ticket.price}"  class="btn btn-success mt-3">
                                     <i class="bi bi-card-checklist"></i> Purchase Ticket
                                 </a>
                             </div>
