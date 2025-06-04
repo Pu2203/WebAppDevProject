@@ -19,7 +19,7 @@
                         <h4 class="mb-0"><i class="bi bi-person-circle"></i> Login</h4>
                     </div>
                     <div class="card-body p-4">
-                        <form action="LoginServlet" method="post">
+                        <form action="${pageContext.request.contextPath}/LoginServlet" method="post">
                             <input type="hidden" name="action" value="LOGIN">
                             
                             <div class="mb-3">

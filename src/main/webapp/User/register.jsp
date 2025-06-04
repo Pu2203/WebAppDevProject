@@ -17,7 +17,7 @@
                         <h4 class="mb-0"><i class="bi bi-person-plus-fill"></i> Register Account</h4>
                     </div>
                     <div class="card-body p-4">
-                        <form action="RegisterServlet" method="post">
+                        <form action="${pageContext.request.contextPath}/RegisterServlet" method="post">
                             <input type="hidden" name="action" value="REGISTER">
                             
                             <!-- Personal Information -->

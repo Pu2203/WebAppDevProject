@@ -78,7 +78,7 @@ public class PaymentTicketServlet extends HttpServlet {
             }
         } else {
             // Redirect to login page if user is not logged in
-            response.sendRedirect(request.getContextPath() + "/User/login");
+            response.sendRedirect(request.getContextPath() + "/User/login.jsp");
         }
     }
         
